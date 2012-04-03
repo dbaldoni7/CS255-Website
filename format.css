@@ -1,0 +1,37 @@
+h1{ font-family: Impact, Charcoal, sans-serif;
+		color: #3399FF;
+		font-size: 55pt; 
+		text-align:center;
+}
+h3{ 
+	font-family: Impact, Charcoal, sans-serif;
+	color: purple;
+}
+
+body{ 
+		font-family: sans-serif;
+	}
+	
+table{
+	border: 5px groove blue; background: grey;
+}
+	
+#jar{
+	background-image:url('jar.png');
+	background-repeat:no-repeat;
+	position:absolute;
+	left: 125px;
+	width: 400px;
+	height:625px;
+}
+	
+#right{
+	position:absolute;
+	right: 400px;
+	top: 280px;
+}
+	
+#title{
+	position: absolute:
+	top: 0;
+}
