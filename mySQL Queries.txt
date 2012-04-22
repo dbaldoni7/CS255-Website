@@ -1,0 +1,49 @@
+CREATE DATABASE `cs255` ;
+
+CREATE TABLE Users(
+userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+username VARCHAR( 40 ) NOT NULL ,
+password VARCHAR( 40 ) NOT NULL , 
+access INT,
+admin INT
+);
+
+
+CREATE TABLE Team(
+teamID INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+school VARCHAR( 40 ) NOT NULL ,
+sport VARCHAR( 40 )
+);
+
+
+CREATE TABLE Coach(
+userID INT ,
+teamID INT ,
+first_name VARCHAR( 40 ) NOT NULL ,
+last_name VARCHAR( 40 ),
+email VARCHAR(50)
+);
+
+
+CREATE TABLE Athlete(
+userID INT ,
+teamID INT ,
+first_name VARCHAR( 40 ) NOT NULL ,
+last_name VARCHAR( 40 ),
+email VARCHAR(50),
+grad_year INT,
+bio TEXT
+);
+
+CREATE TABLE Event(
+eventID INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+teamID INT ,
+date VARCHAR( 40 ) ,
+location VARCHAR( 40 )
+)
+
+CREATE TABLE EventResult(
+eventID INT ,
+userID INT ,
+result1 VARCHAR( 40 )
+);
