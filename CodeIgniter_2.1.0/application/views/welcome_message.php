@@ -78,11 +78,18 @@
 		$data = array(
               'name'        => 'username',
               'id'          => 'username',
-              'maxlength'   => '100',
-              'size'        => '50',
             );
 
 		echo form_input($data);
+		
+		$data = array(
+              'name'        => 'password',
+              'id'          => 'passwrod',
+            );
+
+		echo form_password($data);
+		
+		echo form_submit('submit_login', 'Login');
 	
 		echo form_close();
 	?>

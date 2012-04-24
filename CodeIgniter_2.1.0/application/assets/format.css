@@ -32,6 +32,32 @@ table{
 }
 	
 #title{
-	position: absolute:
+	position: absolute;
 	top: 0;
+}
+
+input[type=text], input[type=password] {
+    display: block;
+    margin: 0 auto 1em auto;
+    width: 150px;
+    border: 1px solid #818181;
+	-moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 5px;
+}
+
+input[type=submit] , form a {
+    border: none;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #cfdeff;
+    color: black;
+    box-shadow: 0 1px 0 white;
+    -moz-box-shadow: 0 1px 0 white;
+    -webkit-box-shadow: 0 1px 0 white;
 }
