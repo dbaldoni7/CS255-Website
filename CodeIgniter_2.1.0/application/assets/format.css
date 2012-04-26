@@ -47,7 +47,7 @@ input[type=text], input[type=password] {
 }
 
 input[type=submit] , form a {
-    border: none;
+    border: 2px groove black;
     margin-right: auto;
     margin-left: auto;
     padding: 6px;

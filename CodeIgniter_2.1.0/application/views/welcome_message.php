@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to Title</title>
+	<title>Welcome to TeamTracker</title>
 	
 	<link rel = "stylesheet" type="text/css" href = "<?php echo base_url(); ?>application/assets/format.css" />
    	<style type="text/css">
@@ -17,6 +17,7 @@
 		margin: 40px;
 		font: 13px/20px normal Helvetica, Arial, sans-serif;
 		color: #4F5155;
+		text-align: center;
 	}
 
 	a {
@@ -34,10 +35,6 @@
 		display: block;
 		margin: 14px 0 14px 0;
 		padding: 12px 10px 12px 10px;
-	}
-
-	#body{
-		margin: 0 15px 0 15px;
 	}
 	
 	p.footer{
@@ -57,21 +54,19 @@
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
-	
-	p{
-		text-align:center;
-	}
+
 	</style>
 </head>
 <body>
 	
-<h1>Title</h1>
+<h1>TeamTracker</h1>
 	
 <div id = "container">
-	<p>Welcome to title. It is the best way for coaches and athletes to track performance. We provide you with
-		a series of visual tools to keep track of performance data and help athletes improve. Get started <a href = "" >here</a></p>
+	<p>Welcome to TeamTracker. It is the best way for coaches and athletes to track performance. We provide you with
+		a series of visual tools to keep track of performance data and help athletes improve. Get started <a href = "<?php echo base_url(); ?>index.php/register/registercoach" >here</a></p>
 	<br/>
 	<?php
+		echo "Username<br/>";
 		echo form_open();
 		$data = array(
               'name'        => 'username',
@@ -80,15 +75,16 @@
 
 		echo form_input($data);
 		
+		echo"Password<br/>";
 		$data = array(
               'name'        => 'password',
               'id'          => 'passwrod',
             );
 
 		echo form_password($data);
-		
+		echo "<center>";
 		echo form_submit('submit_login', 'Login');
-	
+		echo "</cenetr>";
 		echo form_close();
 	?>
 </div>
