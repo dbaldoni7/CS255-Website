@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Register</title>
+	<title>Team Tracking</title>
 	<style type="text/css">
 		label
 		{
@@ -10,10 +10,10 @@
 		
 		#footer 
 		{
-			margin-left:auto;
-			margin-right:auto;
 			margin-top:2em;
+			text-align: center;
 		}
+		
 	</style>
 </head>
 <body>

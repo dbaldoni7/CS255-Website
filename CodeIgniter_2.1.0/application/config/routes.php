@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "register";
+$route['default_controller'] = "loggedinathlete";
 $route['404_override'] = '';
 
 
