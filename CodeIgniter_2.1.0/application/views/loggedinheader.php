@@ -13,11 +13,16 @@
 			margin-top:2em;
 			text-align: center;
 		}
+		#welcome
+		{
+			float: right;
+		}
 		
 	</style>
 </head>
 <body>
-<a href="url">Events</a> | 
-<a href="url">My Profile</a> | 
-<a href="url">Weight Data</a> | 
-<a href="url">Analysis</a>
+<a href="events">Events</a> | 
+<a href="profile">My Profile</a> | 
+<a href="weighttraining">Weight Data</a> | 
+<a href="analysis">Analysis</a>
+<div id = 'welcome'>Welcome, <a href="profile">athlete</a> </div>

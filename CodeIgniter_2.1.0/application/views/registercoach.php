@@ -3,7 +3,7 @@
 $this->load->helper('form');
 
 echo "<h1>Register</h1>";
-echo form_open('');
+echo form_open('loggedinathlete/profile');
 echo form_label('First Name', 'firstname');
 echo form_input('firstname');
 echo "</br>";
@@ -17,10 +17,10 @@ echo form_label('Username', 'username');
 echo form_input('username');
 echo "</br>";
 echo form_label('Password', 'password');
-echo form_input('password');
+echo form_password('password');
 echo "</br>";
 echo form_label('Confirm password', 'confirmpw');
-echo form_input('confirmpw');
+echo form_password('confirmpw');
 echo "</br>";
 echo form_label('Sport', 'sport');
 echo form_input('sport');

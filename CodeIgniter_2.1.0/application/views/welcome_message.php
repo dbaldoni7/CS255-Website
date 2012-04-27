@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Welcome to Title</title>
+	
+	<link rel = "stylesheet" type="text/css" href = "<?php echo base_url(); ?>application/assets/format.css" />
+   	<style type="text/css">
 
-	<style type="text/css">
 
 	::selection{ background-color: #E13300; color: white; }
 	::moz-selection{ background-color: #E13300; color: white; }
@@ -21,16 +23,6 @@
 		color: #003399;
 		background-color: transparent;
 		font-weight: normal;
-	}
-
-	h1 {
-		color: #444;
-		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
-		font-size: 19px;
-		font-weight: normal;
-		margin: 0 0 14px 0;
-		padding: 14px 15px 10px 15px;
 	}
 
 	code {
@@ -58,15 +50,21 @@
 	}
 	
 	#container{
+		left: 25%;
+		width: 50%;
+		position:absolute;
 		margin: 10px;
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
+	
+	p{
+		text-align:center;
+	}
 	</style>
 </head>
 <body>
-
-<<<<<<< HEAD
+	
 <h1>Title</h1>
 	
 <div id = "container">
@@ -93,24 +91,6 @@
 	
 		echo form_close();
 	?>
-=======
-<div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
-
-	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
->>>>>>> 661d677cb1bc5f7d2824c8beed16d0f1dd9a06a5
 </div>
 
 </body>
