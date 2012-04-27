@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>Register</title>
+	<link rel = "stylesheet" type="text/css" href = "<?php echo base_url(); ?>application/assets/format.css" />
 	<style type="text/css">
 		label
 		{
