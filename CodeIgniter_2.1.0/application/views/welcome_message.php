@@ -67,10 +67,10 @@
 	<br/>
 	<?php
 		echo "Username<br/>";
-		echo form_open();
+		echo form_open('loggedinathlete/validateLogin');
 		$data = array(
-              'name'        => 'username',
-              'id'          => 'username',
+              'name'        => 'email',
+              'id'          => 'email',
             );
 
 		echo form_input($data);
