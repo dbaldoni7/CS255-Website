@@ -66,8 +66,8 @@
 		a series of visual tools to keep track of performance data and help athletes improve. Get started <a href = "<?php echo base_url(); ?>index.php/register/registercoach" >here</a></p>
 	<br/>
 	<?php
-		echo "Username<br/>";
-		echo form_open('loggedinathlete/validateLogin');
+		echo "Email<br/>";
+		echo form_open('login/userLogin');
 		$data = array(
               'name'        => 'email',
               'id'          => 'email',
@@ -83,6 +83,7 @@
 
 		echo form_password($data);
 		echo "<center>";
+		echo validation_errors();
 		echo form_submit('submit_login', 'Login');
 		echo "</cenetr>";
 		echo form_close();

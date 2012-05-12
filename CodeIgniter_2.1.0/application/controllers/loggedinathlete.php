@@ -10,7 +10,7 @@ class Loggedinathlete extends CI_Controller {
 	}
 	
 	public function profile()
-	{
+
 		$this->load->view('loggedinheader');
 		$this->load->view('profile');
 		$this->load->view('footer');
