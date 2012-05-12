@@ -63,7 +63,7 @@
 	
 <div id = "container">
 	<p>Welcome to TeamTracker. It is the best way for coaches and athletes to track performance. We provide you with
-		a series of visual tools to keep track of performance data and help athletes improve. Get started <a href = "<?php echo base_url(); ?>index.php/register/registercoach" >here</a></p>
+		a series of visual tools to keep track of performance data and help athletes improve. Get started <a href = "<?php echo base_url(); ?>index.php/register/displayRegisterCoachView" >here</a></p>
 	<br/>
 	<?php
 		echo "Email<br/>";

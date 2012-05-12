@@ -94,7 +94,7 @@ class Register extends CI_Controller {
 
 		$subject = "Welcome to Team Tracker!";
 		$message = "Your coach, $name, has invited you to join $school's $sport team in order to view event schedules and track your progress throughout the semester.  In order to register, please visit the link below and enter the TeamID number provided.
-		<br/><br/><a href=echo site_url('register/registerathlete')>Register here</a>
+		<br/><br/><a href= site_url('register/displayRegisterAthleteView') >Register here</a>
 		<br/>TeamID: $teamID<br/><br/><br/>
 		
 		Welcome to the team!<br/>
@@ -102,7 +102,7 @@ class Register extends CI_Controller {
 		
 		if(mail($inviteEmails, $subject, $message, $headers))
 		{
-			echo "<br/>You have successfully invited these athletes to register for your team: $inviteEmails";
+			echo "<br/>You have successfully invited these athletes to register for your team: $inviteEmails<br/>";
 		}
 		else
 		{

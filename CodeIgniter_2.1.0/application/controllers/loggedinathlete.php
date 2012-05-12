@@ -10,7 +10,7 @@ class Loggedinathlete extends CI_Controller {
 	}
 	
 	public function profile()
-
+	{
 		$this->load->view('loggedinheader');
 		$this->load->view('profile');
 		$this->load->view('footer');
@@ -97,7 +97,7 @@ class Loggedinathlete extends CI_Controller {
 		
 		if(mail($inviteEmails, $subject, $message, $headers))
 		{
-			echo "<br/>You have successfully invited these athletes to register for your team: $inviteEmails";
+			echo "<br/>You have successfully invited these athletes to register for your team: $inviteEmails<br/>";
 			?><a href="<?php echo site_url('loggedinathlete/coachprofile') ?>">Go back to profile</a><?php
 		}
 		else

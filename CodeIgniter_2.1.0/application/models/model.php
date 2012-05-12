@@ -39,8 +39,6 @@ class Model extends CI_Model{
 		else return FALSE;
 	}
 	
-	
-	
 	public function registerTeam($school, $sport){
 		$queryStr = "insert into Team (school, sport) values (?, ?)";
 		if($this->db->query($queryStr, array($school, $sport))){
