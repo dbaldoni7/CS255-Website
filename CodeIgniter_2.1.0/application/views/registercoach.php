@@ -4,6 +4,7 @@ $this->load->helper('form');
 
 echo "<h1>Register</h1>";
 echo form_open('register/registerNewCoach');
+echo validation_errors();
 echo form_label('First Name', 'firstname');
 echo form_input('firstname', set_value('firstname'));
 echo "</br>";
@@ -28,7 +29,6 @@ echo "</br>";
 echo form_label('Athletes to invite', 'invitelist');
 echo form_textarea('invitelist', '(Comma separated email addresses please)');
 echo "</br>";
-echo validation_errors();
 echo form_submit('confirmreg', 'Confirm registration');
 echo form_close();
 ?>

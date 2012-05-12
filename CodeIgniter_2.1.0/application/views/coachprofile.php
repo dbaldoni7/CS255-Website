@@ -5,10 +5,14 @@ $this->load->helper('form');
 echo "<h1>Coach Name</h1>";
 echo form_open('');
 echo ('School/Team Name</br>');
-echo form_close();
+echo form_close('');
 
-echo "Add more athletes";
+echo form_open('loggedinathlete/invite_more_athletes');
+echo validation_errors();
+echo form_label('Invite more athletes', 'invitelist');
+echo form_textarea('invitelist', '(Comma separated email addresses please)');
 echo form_submit('add_more_athletes', 'Add');
+echo form_close();
 
 echo form_open('');
 echo "<h2>Change Password</h2>";

@@ -2,27 +2,6 @@
 
 class Loggedinathlete extends CI_Controller {
 	
-	public function validateLogin(){
-		$this->load->model('Model');
-		$email = $this->input->post('email');
-		$user = $this->Model->getUser($email);
-		 if (isset($user)){
-		 	echo $user;
-		 	$password = $user->password;
-			$entered = $this->input->post(password);
-			
-			if($password == sha1($entered)){
-				$this->profile($user);
-			}
-			else{
-				echo "Not a valid password";
-			}
-		 }
-		 else{
-		 	echo "Not a valid email address";
-		 }
-	}
-
 	public function addnewevent()
 	{
 		$this->load->view('loggedinheader');
@@ -84,6 +63,47 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('loggedinheader');
 		$this->load->view('add_day');
 		$this->load->view('footer');
+	}
+	
+	public function invite_more_athletes()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('invitelist', 'Invite List', 'trim|required|xss_clean');
+		if($this->form_validation->run() == FALSE)
+		{
+			$this->coachprofile();
+		}
+		else
+		{
+			$teamID = 1;
+			$invitelist = $this->input->post('invitelist');
+			$this->send_invite_emails($invitelist, $teamID);
+		}
+	}
+	
+	public function send_invite_emails($inviteEmails, $teamID)
+	{
+		$headers  = 'MIME-Version: 1.0' . "\n";
+		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\n";
+		$headers .=  'From: TeamTracker@example.com' . "\n" .'Reply-To: TeamTracker@example.com' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+
+		$subject = "Welcome to Team Tracker!";
+		$message = "Your coach has invited you to join their team in order to view event schedules and track your progress throughout the semester.  In order to register, please visit the link below and enter the TeamID number provided.
+		<br/><br/><a href=echo site_url('register/registerathlete')>Register here</a>
+		<br/>TeamID: $teamID<br/><br/><br/>
+		
+		Welcome to the team!<br/>
+		Chelsea @ Team Tracker";
+		
+		if(mail($inviteEmails, $subject, $message, $headers))
+		{
+			echo "<br/>You have successfully invited these athletes to register for your team: $inviteEmails";
+			?><a href="<?php echo site_url('loggedinathlete/coachprofile') ?>">Go back to profile</a><?php
+		}
+		else
+		{
+			echo "Sorry you messed up!";
+		}
 	}
 }
 
