@@ -16,6 +16,13 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+	public function coachprofile()
+	{
+		$this->load->view('loggedinheader');
+		$this->load->view('coachprofile');
+		$this->load->view('footer');
+	}
+	
 	public function events()
 	{
 		$this->load->view('loggedinheader');
