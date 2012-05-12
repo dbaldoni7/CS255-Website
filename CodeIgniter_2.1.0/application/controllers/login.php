@@ -1,7 +1,6 @@
 <?php
 class Login extends CI_Controller {
-		
-		
+
 	public function userLogin(){
 		$this->load->model('Model');
 		$this->load->library('form_validation');
@@ -23,13 +22,26 @@ class Login extends CI_Controller {
 				$userID = $row->userID;
 				$name = $row->name;
 				$admin = $row->admin;
+
 				$this->session->set_userdata('logged_in', TRUE);
 				$this->session->set_userdata('name', $name);
 				$this->session->set_userdata('admin', $admin);
+				$this->session->set_userdata('userID', $userID);
+
 				
-				$this->load->view('loggedinheader');
-				$this->load->view('profile');
-				$this->load->view('footer');
+				if($admin == 0)
+				{
+					$bio = $row->bio;
+					$gradyear = $row->gradyear;
+					$this->session->set_userdata('bio', $bio);
+					$this->session->set_userdata('gradyear', $gradyear);
+					redirect('loggedinathlete/profile');
+				}
+				
+				else if($admin == 1)
+				{
+					redirect('loggedinathlete/coachprofile');				
+				}
 			}
 			else{
 				$this->load->view('welcome_message');

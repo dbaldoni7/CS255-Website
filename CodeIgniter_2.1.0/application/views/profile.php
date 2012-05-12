@@ -2,11 +2,13 @@
 
 $this->load->helper('form');
 
-echo "<h1>Athlete Name</h1>";
+echo "<h1>".$this->session->userdata('name')."</h1>";
 echo form_open('');
-echo ('School/Team Name</br>');
-echo ('Graduation Year</br>');
-echo form_textarea('bio', '');
+echo ('<b>School/Team Name</b></br></br>');
+echo ('<b>Graduation Year</b></br>');
+echo $this->session->userdata('gradyear');
+echo "<br/><br/>";
+echo form_textarea('bio', $this->session->userdata('bio'));
 echo "</br>";
 echo form_submit('edit', 'Edit Bio');
 echo form_close();

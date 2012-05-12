@@ -2,9 +2,9 @@
 
 $this->load->helper('form');
 
-echo "<h1>Coach Name</h1>";
+echo "<h1>".$this->session->userdata('name')."</h1>";
 echo form_open('');
-echo ('School/Team Name</br>');
+echo ('<b>School/Team Name</b></br>');
 echo form_close('');
 
 echo form_open('loggedinathlete/invite_more_athletes');
