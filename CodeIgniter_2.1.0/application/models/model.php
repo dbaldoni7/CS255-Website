@@ -23,9 +23,9 @@ class Model extends CI_Model{
 		
 		$queryStr = "insert into Users (email, password, name, teamID, admin) values (?, ?, ?, ?, ?)";
 		if($this->db->query($queryStr, array($email,$sha1_pass, $name, $teamID, 1))){
-			return TRUE;
+			return $teamID;
 		}
-		else return FALSE;
+		else return 0;
 	}
 	
 	public function registerAthlete($teamID, $name, $email, $password, $gradyear, $bio){		
@@ -44,9 +44,10 @@ class Model extends CI_Model{
 		$queryStr = "insert into Team (school, sport) values (?, ?)";
 		if($this->db->query($queryStr, array($school, $sport))){
 			//return team ID that is created
-			$queryStr = "select teamID where school = '$school' and where sport = '$sport'";
-			
-			return 1;
+			$queryStr = "select teamID FROM Team where school = '$school' and sport = '$sport'";
+			$query = $this->db->query($queryStr);
+			$row = $query->row();
+			return $row->teamID;
 		}
 		else return 0; 
 	}
