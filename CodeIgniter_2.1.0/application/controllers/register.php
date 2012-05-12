@@ -24,7 +24,7 @@ class Register extends CI_Controller {
 		$this->form_validation->set_rules('lastname', 'last name', 'trim|required|alpha_numeric|xss_clean');
 		$this->form_validation->set_rules('password', 'password', 'trim|required|min_length[6]|xss_clean');
 		$this->form_validation->set_rules('confirmpw', 'confirm password', 'trim|required|matches[password]|xss_clean');
-		$this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|xss_clean');
+		$this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|xss_clean|callback_doesUserExist');
 		$this->form_validation->set_rules('sport', 'sport', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('school', 'school', 'trim|required|xss_clean');
 		
@@ -55,6 +55,16 @@ class Register extends CI_Controller {
 
 	public function sendInviteEmails($inviteEmails){
 		
+	}
+	
+	public function doesUserExist($email){
+		$this->form_validation->set_message("doesUserExist", "This email address already exists.");
+		
+		$this->load->model('Model');
+		if($this->Model->doesUserExist($email)){
+			return FALSE;
+		}
+		else return TRUE;
 	}
 }
 

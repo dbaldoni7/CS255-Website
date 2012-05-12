@@ -8,12 +8,13 @@ class Model extends CI_Model{
         parent::__construct();
     }
 	
-	public function getUser($email){
-		$query = $this->db->query('SELECT * FROM Users where email = \'$email\'');
-		if ($query->num_rows() > 0){
-			return $query->result();
+	public function getUser($email, $password){
+		$sha_pass = sha1($password);
+		$result = $this->db->query("select * from Users where email = '$email' and password = '$sha_pass'");
+		if ($result->num_rows() == 1){
+			return $result->row(0);
 		}
-		else return NULL; 
+		else return FALSE; 
 	}
 
 	public function registerCoach($name, $email, $password, $school, $sport){
@@ -44,10 +45,20 @@ class Model extends CI_Model{
 		$queryStr = "insert into Team (school, sport) values (?, ?)";
 		if($this->db->query($queryStr, array($school, $sport))){
 			//return team ID that is created
-			$queryStr = "select teamID where school = '$school' and where sport = '$sport'";
-			
-			return 1;
+			$queryStr = "select teamID from Team where school = '$school' and sport = '$sport'";
+			$query = $this->db->query($queryStr);
+			$row = $query->row();
+			return $row->teamID;
 		}
 		else return 0; 
+	}
+	
+	public function doesUserExist($email){
+		$queryStr = "select * from Users where email = '$email'";
+		$query = $this->db->query($queryStr);
+		if($query->num_rows() > 0){
+			return TRUE;
+		}
+		else return FALSE;
 	}
 }
