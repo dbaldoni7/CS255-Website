@@ -45,9 +45,9 @@ class Register extends CI_Controller {
 			$this->load->model('Model');
 			$teamID = $this->Model->registerCoach($name, $email, $password, $school, $sport);
 			if($teamID){
-				echo "Coach Registered Successfully<br/>";
-				?><a href="<?php echo site_url('loggedinathlete/coachprofile') ?>">Go to profile</a><?php
+				echo "You have been registered successfully<br/>";
 				$this->sendInviteEmails($invitelist, $teamID, $name, $school, $sport);
+				?><a href="<?php echo site_url('loggedinathlete/coachprofile') ?>">Go to profile</a><?php
 			}
 		}
 	}
@@ -61,29 +61,27 @@ class Register extends CI_Controller {
 		$this->form_validation->set_rules('password', 'password', 'trim|required|min_length[6]|xss_clean');
 		$this->form_validation->set_rules('confirmpw', 'confirm password', 'trim|required|matches[password]|xss_clean');
 		$this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|xss_clean');
-		$this->form_validation->set_rules('sport', 'sport', 'trim|required|xss_clean');
-		$this->form_validation->set_rules('school', 'school', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('gradyear', 'Grad year', 'trim|required|exact_length[4]|numeric|xss_clean');
+		$this->form_validation->set_rules('bio', 'bio', 'trim|required|xss_clean');
 		
 		if($this->form_validation->run() == FALSE){
 			
 			$this->displayRegisterAthleteView();
 		}
 		else{
+			$teamID = $this->input->post('teamID');
 			$firstname = $this->input->post('firstname');
 			$lastname = $this->input->post('lastname');
 			$name = "$firstname" . " " . "$lastname";
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
-			$school = $this->input->post('school');
-			$sport = $this->input->post('sport');
-			$invitelist = $this->input->post('invitelist');
+			$gradyear = $this->input->post('gradyear');
+			$bio = $this->input->post('bio');
 			
 			$this->load->model('Model');
-			$teamID = $this->Model->registerCoach($name, $email, $password, $school, $sport);
-			if($teamID){
-				echo "Coach Registered Successfully<br/>";
-				?><a href="<?php echo site_url('loggedinathlete/coachprofile') ?>">Go to profile</a><?php
-				$this->sendInviteEmails($invitelist, $teamID, $name, $school, $sport);
+			if($this->Model->registerAthlete($teamID, $name, $email, $password, $gradyear, $bio)){
+				echo "You have been registered successfully!<br/>";
+				?><a href="<?php echo site_url('loggedinathlete/profile') ?>">Go to my profile</a><?php
 			}
 		}
 	}

@@ -31,8 +31,8 @@ class Model extends CI_Model{
 	public function registerAthlete($teamID, $name, $email, $password, $gradyear, $bio){		
 		$sha1_pass = sha1($password);
 		
-		$queryStr = "insert into Users (email, password, name, teamID, admin) values (?, ?, ?, ?, ?)";
-		if($this->db->query($queryStr, array($email,$sha1_pass, $name, $teamID, 1))){
+		$queryStr = "insert into Users (email, password, name, teamID, admin, gradyear, bio) values (?, ?, ?, ?, ?, ?, ?)";
+		if($this->db->query($queryStr, array($email, $sha1_pass, $name, $teamID, 0, $gradyear, $bio))){
 			return TRUE;
 		}
 		else return FALSE;

@@ -22,7 +22,6 @@ class Loggedinathlete extends CI_Controller {
 		 	echo "Not a valid email address";
 		 }
 	}
-	
 
 	public function addnewevent()
 	{
@@ -31,10 +30,10 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function profile($data)
+	public function profile()
 	{
 		$this->load->view('loggedinheader');
-		$this->load->view('profile/$data');
+		$this->load->view('profile');
 		$this->load->view('footer');
 	}
 	

@@ -7,6 +7,9 @@ echo form_open('');
 echo ('School/Team Name</br>');
 echo form_close();
 
+echo "Add more athletes";
+echo form_submit('add_more_athletes', 'Add');
+
 echo form_open('');
 echo "<h2>Change Password</h2>";
 echo form_label('current password', 'current');
