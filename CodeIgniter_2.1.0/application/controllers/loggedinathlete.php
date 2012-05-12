@@ -1,6 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Loggedinathlete extends CI_Controller {
+	
+	public function validateLogin(){
+		$this->load->model('Model');
+		$email = $this->input->post('email');
+		$user = $this->Model->getUser($email);
+		 if (isset($user)){
+		 	echo $user;
+		 	$password = $user->password;
+			$entered = $this->input->post(password);
+			
+			if($password == sha1($entered)){
+				$this->profile($user);
+			}
+			else{
+				echo "Not a valid password";
+			}
+		 }
+		 else{
+		 	echo "Not a valid email address";
+		 }
+	}
+	
 
 	public function addnewevent()
 	{
@@ -9,10 +31,10 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function profile()
+	public function profile($data)
 	{
 		$this->load->view('loggedinheader');
-		$this->load->view('profile');
+		$this->load->view('profile/$data');
 		$this->load->view('footer');
 	}
 	

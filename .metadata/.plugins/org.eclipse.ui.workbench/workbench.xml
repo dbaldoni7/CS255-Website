@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="41" version="2.0">
 <workbenchAdvisor/>
-<window height="822" width="1200" x="38" y="22">
+<window height="822" width="1200" x="64" y="22">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -33,35 +33,25 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
-<part id="4"/>
-<part id="5"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="com.aptana.editor.php" name="job_jar_view.php" partName="job_jar_view.php" title="job_jar_view.php" tooltip="/Users/dariobaldoni/Developer/CS255 Advanced Web Apps/HW2 CodeIgniter/JobJar2/application/views/job_jar_view.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/dariobaldoni/Developer/CS255%20Advanced%20Web%20Apps/HW2%20CodeIgniter/JobJar2/application/views/job_jar_view.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1160" selectionTopPixel="0"/>
-</editor>
-<editor activePart="true" focus="true" id="com.aptana.editor.php" name="welcome_message.php" partName="welcome_message.php" title="welcome_message.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/welcome_message.php" workbook="DefaultEditorWorkbook">
+<editor id="com.aptana.editor.php" name="welcome_message.php" partName="welcome_message.php" title="welcome_message.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/welcome_message.php" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/welcome_message.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1623" selectionTopPixel="854"/>
-</editor>
-<editor id="com.aptana.editor.php" name="routes.php" partName="routes.php" title="routes.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1338" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1592" selectionTopPixel="897"/>
 </editor>
 <editor id="com.aptana.editor.css" name="format.css" partName="format.css" title="format.css" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/assets/format.css" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/assets/format.css"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="793" selectionTopPixel="0"/>
 </editor>
-<editor id="com.aptana.editor.php" name="autoload.php" partName="autoload.php" title="autoload.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/autoload.php" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/autoload.php"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1944" selectionTopPixel="631"/>
-</editor>
-<editor id="com.aptana.editor.php" name="register.php" partName="register.php" title="register.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="com.aptana.editor.php" name="register.php" partName="register.php" title="register.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="com.aptana.editor.php" name="index.php" partName="index.php" title="index.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/index.php" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/index.php"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="2462"/>
 </editor>
 </editors>
 <views>
@@ -178,15 +168,6 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/welcome_message.php"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/autoload.php"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/welcome.php"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.html" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/index.html"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/index.php"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255%20Advanced%20Web%20Apps/HW2%20CodeIgniter/JobJar2/application/views/job_jar_view.php"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/welcome_message.php"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.html" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/index.html"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/welcome.php"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/autoload.php"/>
@@ -198,156 +179,164 @@
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/config.php"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/autoload.php"/>
 <editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/welcome_message.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/autoload.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/index.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/index.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php"/>
+<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/database.php"/>
 </editors>
-<item historyLabel="autoload.php" index="1">
+<item historyLabel="routes.php" index="0">
+<position info="not_deleted" x="1338" y="0"/>
+</item>
+<item historyLabel="welcome.php" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="autoload.php" index="2">
 <position info="not_deleted" x="1943" y="0"/>
 </item>
-<item historyLabel="routes.php" index="2">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="welcome.php" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="routes.php" index="2">
-<position info="not_deleted" x="1338" y="0"/>
-</item>
-<item historyLabel="welcome_message.php" index="0">
-<position info="not_deleted" x="1302" y="0"/>
-</item>
-<item historyLabel="index.html" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="welcome_message.php" index="0">
-<position info="not_deleted" x="1302" y="0"/>
-</item>
-<item historyLabel="index.php" index="5">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="welcome_message.php" index="0">
-<position info="not_deleted" x="1302" y="0"/>
-</item>
-<item historyLabel="routes.php" index="2">
-<position info="not_deleted" x="1338" y="0"/>
-</item>
-<item historyLabel="welcome_message.php" index="0">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="job_jar_view.php" index="6">
-<position info="not_deleted" x="1160" y="0"/>
-</item>
-<item historyLabel="welcome_message.php" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="welcome.php" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="routes.php" index="2">
-<position info="not_deleted" x="1338" y="0"/>
-</item>
-<item historyLabel="welcome_message.php" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="index.html" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="welcome_message.php" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="routes.php" index="9">
-<position info="not_deleted" x="1338" y="0"/>
-</item>
-<item historyLabel="welcome.php" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="autoload.php" index="11">
-<position info="not_deleted" x="1943" y="0"/>
-</item>
-<item historyLabel="format.css" index="12">
+<item historyLabel="format.css" index="3">
 <position info="not_deleted" x="556" y="0"/>
 </item>
-<item historyLabel="job_jar_view.php" index="13">
+<item historyLabel="job_jar_view.php" index="4">
 <position info="not_deleted" x="1160" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1241" y="0"/>
 </item>
-<item historyLabel="routes.php" index="15">
+<item historyLabel="routes.php" index="6">
 <position info="not_deleted" x="1338" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position/>
 </item>
-<item historyLabel="format.css" index="16">
+<item historyLabel="format.css" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position/>
 </item>
-<item historyLabel="config.php" index="17">
+<item historyLabel="config.php" index="8">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position/>
 </item>
-<item historyLabel="routes.php" index="15">
+<item historyLabel="routes.php" index="6">
 <position info="not_deleted" x="1338" y="0"/>
 </item>
-<item historyLabel="autoload.php" index="18">
+<item historyLabel="autoload.php" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="autoload.php" index="18">
+<item historyLabel="autoload.php" index="9">
 <position info="not_deleted" x="1944" y="0"/>
 </item>
-<item historyLabel="format.css" index="16">
+<item historyLabel="format.css" index="7">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="autoload.php" index="18">
+<item historyLabel="autoload.php" index="9">
 <position info="not_deleted" x="1944" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="241" y="0"/>
 </item>
-<item historyLabel="format.css" index="16">
+<item historyLabel="format.css" index="7">
 <position info="not_deleted" x="777" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1981" y="0"/>
 </item>
-<item historyLabel="format.css" index="16">
+<item historyLabel="format.css" index="7">
 <position info="not_deleted" x="793" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1981" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1746" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1917" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1623" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position/>
 </item>
-<item historyLabel="format.css" index="16">
+<item historyLabel="format.css" index="7">
 <position info="not_deleted" x="793" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1345" y="0"/>
 </item>
-<item historyLabel="format.css" index="16">
+<item historyLabel="format.css" index="7">
 <position info="not_deleted" x="793" y="0"/>
 </item>
-<item historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1570" y="0"/>
 </item>
-<item historyLabel="register.php" index="19">
+<item historyLabel="register.php" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="welcome_message.php" index="14">
+<item historyLabel="welcome_message.php" index="5">
 <position info="not_deleted" x="1570" y="0"/>
+</item>
+<item historyLabel="routes.php" index="11">
+<position info="not_deleted" x="321" y="0"/>
+</item>
+<item historyLabel="welcome_message.php" index="12">
+<position info="not_deleted" x="1309" y="23"/>
+</item>
+<item historyLabel="autoload.php" index="13">
+<position/>
+</item>
+<item historyLabel="register.php" index="14">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="welcome_message.php" index="12">
+<position info="not_deleted" x="1592" y="0"/>
+</item>
+<item historyLabel="index.php" index="15">
+<position/>
+</item>
+<item historyLabel="welcome_message.php" index="12">
+<position info="not_deleted" x="1592" y="0"/>
+</item>
+<item historyLabel="index.php" index="15">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="welcome_message.php" index="12">
+<position info="not_deleted" x="1592" y="0"/>
+</item>
+<item historyLabel="index.php" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="routes.php" index="17">
+<position info="not_deleted" x="1495" y="0"/>
+</item>
+<item historyLabel="index.php" index="16">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="database.php" index="18">
+<position info="not_deleted" x="2740" y="0"/>
+</item>
+<item historyLabel="autoload.php" index="13">
+<position/>
+</item>
+<item historyLabel="database.php" index="18">
+<position info="not_deleted" x="2740" y="0"/>
+</item>
+<item historyLabel="register.php" index="14">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="autoload.php" index="13">
+<position info="not_deleted" x="1941" y="0"/>
+</item>
+<item active="true" historyLabel="register.php" index="14">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -366,11 +355,23 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="register.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php">
-<persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php"/>
-</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="autoload.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/autoload.php">
 <persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/autoload.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="database.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/database.php">
+<persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/database.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="routes.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php">
+<persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="index.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/index.php">
+<persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/index.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="index.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/index.php">
+<persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/index.php"/>
+</file>
+<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="register.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php">
+<persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/controllers/register.php"/>
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="config.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/config.php">
 <persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/config.php"/>
@@ -378,17 +379,11 @@
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.css" name="format.css" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/assets/format.css">
 <persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/assets/format.css"/>
 </file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="routes.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php">
-<persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/config/routes.php"/>
-</file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="welcome_message.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/welcome_message.php">
 <persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/welcome_message.php"/>
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.html" name="index.html" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/index.html">
 <persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/index.html"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.php" name="index.php" tooltip="/Users/dariobaldoni/Developer/CS255-Website/index.php">
-<persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/index.php"/>
 </file>
 <file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="com.aptana.editor.html" name="index.html" tooltip="/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/index.html">
 <persistable uri="file:/Users/dariobaldoni/Developer/CS255-Website/CodeIgniter_2.1.0/application/views/index.html"/>

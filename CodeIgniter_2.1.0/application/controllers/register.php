@@ -15,6 +15,47 @@ class Register extends CI_Controller {
 		$this->load->view('registerathlete');
 		$this->load->view('footer');
 	}
+	
+	public function registerNewCoach(){
+		
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('firstname', 'first name', 'trim|required|alpha_numeric|xss_clean');
+		$this->form_validation->set_rules('lastname', 'last name', 'trim|required|alpha_numeric|xss_clean');
+		$this->form_validation->set_rules('password', 'password', 'trim|required|min_length[6]|xss_clean');
+		$this->form_validation->set_rules('confirmpw', 'confirm password', 'trim|required|matches[password]|xss_clean');
+		$this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|xss_clean');
+		$this->form_validation->set_rules('sport', 'sport', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('school', 'school', 'trim|required|xss_clean');
+		
+		if($this->form_validation->run() == FALSE){
+			
+			$this->registercoach();
+		}
+		else{
+			$firstname = $this->input->post('firstname');
+			$lastname = $this->input->post('lastname');
+			$name = "$firstname" . "$lastname";
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+			$school = $this->input->post('school');
+			$sport = $this->input->post('sport');
+			$invitelist = $this->input->post('invitelist');
+			
+			$this->load->model('Model');
+			if($this->Model->registerCoach($name, $email, $password, $school, $sport)){
+				echo "Coach Registered Successfully";
+			}
+			$this->sendInviteEmails($invitelist);
+			
+			
+		}
+	
+	}
+
+	public function sendInviteEmails($inviteEmails){
+		
+	}
 }
 
 /* End of file register.php */
