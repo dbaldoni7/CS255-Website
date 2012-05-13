@@ -2,9 +2,10 @@
 
 $this->load->helper('form');
 
-echo "<h1>".$this->session->userdata('name')."</h1>";
+echo "<h2>".$this->session->userdata('name')."</h2>";
 echo form_open('');
 echo ('<b>School/Team Name</b></br></br>');
+echo '<b>'.$this->session->userdata('school') .' - '. $this->session->userdata('sport').'</b></br></br>';
 if ($this->session->userdata('admin') == 0) 
 {
 	echo ('<b>Graduation Year</b></br>');
@@ -15,6 +16,7 @@ if ($this->session->userdata('admin') == 0)
 	echo form_submit('edit', 'Edit Bio');
 	echo form_close();
 }
+
 if ($this->session->userdata('admin') == 1) 
 {
 	echo form_close();
@@ -25,6 +27,7 @@ if ($this->session->userdata('admin') == 1)
 	echo form_submit('add_more_athletes', 'Add');
 	echo form_close();
 }
+
 echo form_open('');
 echo "<h2>Change Password</h2>";
 echo form_label('current password', 'current');
@@ -38,8 +41,5 @@ echo form_password('confirm');
 echo "</br>";
 echo form_submit('change_password', 'Change Password');
 echo form_close();
-
-
-
 
 ?>

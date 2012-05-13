@@ -59,4 +59,14 @@ class Model extends CI_Model{
 		}
 		else return FALSE;
 	}
+	
+	public function getTeamData($id){
+		
+		$queryStr = "select * from Team where teamID = '$id'";
+		$result = $this->db->query($queryStr);
+		if ($result->num_rows() == 1){
+			return $result->row(0);
+		}
+		else return FALSE;
+	}
 }
