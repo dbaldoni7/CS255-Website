@@ -122,7 +122,7 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function add_day()
+	public function add_date()
 	{
 		$this->load->view('loggedinheader');
 		$this->load->view('add_day');
@@ -150,6 +150,33 @@ class Loggedinathlete extends CI_Controller {
 			$this->load->model('Model');
 			if($this->Model->addNewEvent($teamID, $eventname, $date, $location)){
 				$this->events();
+			}
+		}
+	}
+	
+	public function add_new_weight(){
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('date', 'date', 'trim|required|xss_clean');
+		
+		if($this->form_validation->run() == FALSE){
+			
+			$this->add_date();
+		}
+		else{
+			$userID = $this->session->userdata('userID');
+			$date = $this->input->post('date');
+			$chest = $this->input->post('chest');
+			$biceps = $this->input->post('biceps');
+			$triceps = $this->input->post('triceps');
+			$quads = $this->input->post('quads');
+			$hamstrings = $this->input->post('hamstrings');
+			$back = $this->input->post('back');
+			$shoulders = $this->input->post('shoulders');
+
+			$this->load->model('Model');
+			if($this->Model->addNewWeight($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders)){
+				$this->weighttraining();
 			}
 		}
 	}
