@@ -45,9 +45,10 @@ class Register extends CI_Controller {
 			$this->load->model('Model');
 			$teamID = $this->Model->registerCoach($name, $email, $password, $school, $sport);
 			if($teamID){
-				echo "You have been registered successfully<br/>";
-				$this->sendInviteEmails($invitelist, $teamID, $name, $school, $sport);
-				?><a href="<?php echo site_url('loggedinathlete/profile') ?>">Go to profile</a><?php
+//				$this->sendInviteEmails($invitelist, $teamID, $name, $school, $sport);
+				$this->load->view('loggedinheader');
+				$this->load->view('profile');
+				$this->load->view('footer');
 			}
 		}
 	}
@@ -56,6 +57,7 @@ class Register extends CI_Controller {
 		
 		$this->load->library('form_validation');
 		
+		$this->form_validation->set_rules('teamID', 'Team ID', 'trim|required|numeric|xss_clean');
 		$this->form_validation->set_rules('firstname', 'first name', 'trim|required|alpha_numeric|xss_clean');
 		$this->form_validation->set_rules('lastname', 'last name', 'trim|required|alpha_numeric|xss_clean');
 		$this->form_validation->set_rules('password', 'password', 'trim|required|min_length[6]|xss_clean');
@@ -80,13 +82,14 @@ class Register extends CI_Controller {
 			
 			$this->load->model('Model');
 			if($this->Model->registerAthlete($teamID, $name, $email, $password, $gradyear, $bio)){
-				echo "You have been registered successfully!<br/>";
-				?><a href="<?php echo site_url('loggedinathlete/profile') ?>">Go to my profile</a><?php
+					$this->load->view('loggedinheader');
+					$this->load->view('profile');
+					$this->load->view('footer');
 			}
 		}
 	}
 
-	public function sendInviteEmails($inviteEmails, $teamID, $name, $school, $sport)
+/*	public function sendInviteEmails($inviteEmails, $teamID, $name, $school, $sport)
 	{
 		$headers  = 'MIME-Version: 1.0' . "\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\n";
@@ -102,13 +105,15 @@ class Register extends CI_Controller {
 		
 		if(mail($inviteEmails, $subject, $message, $headers))
 		{
-			echo "<br/>You have successfully invited these athletes to register for your team: $inviteEmails<br/>";
+			//echo "<br/>You have successfully invited these athletes to register for your team: $inviteEmails<br/>";
+			return TRUE;
 		}
 		else
 		{
-			echo "Sorry you messed up!";
+			return FALSE;
+			//echo "Sorry you messed up!";
 		}
-	}
+	}*/
 	
 	public function doesUserExist($email){
 		$this->form_validation->set_message("doesUserExist", "This email address already exists.");

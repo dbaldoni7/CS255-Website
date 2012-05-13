@@ -1,7 +1,7 @@
 <div id="footer">
-<a href="url">About</a> | 
-<a href="url">Contact</a> | 
-<a href="url">Help</a>
+<a href="about">About</a> | 
+<a href="contact">Contact</a> | 
+<a href="help">Help</a>
 </div>
 </body>
 </html>
