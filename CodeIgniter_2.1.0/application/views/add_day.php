@@ -31,6 +31,8 @@ if ($this->session->userdata('logged_in'))
 	echo form_input('shoulders', set_value('shoulders'));
 	echo "</br>";
 	echo form_submit('add day', 'Add');
+	echo form_close();
+	echo form_open('loggedinathlete/weighttraining');
 	echo form_submit('cancel', 'Cancel');
 	echo form_close();
 }

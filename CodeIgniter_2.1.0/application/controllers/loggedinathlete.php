@@ -93,7 +93,7 @@ class Loggedinathlete extends CI_Controller {
 		$userID = $this->session->userdata('userID');	
 		$result = $this->Model->getWeightData($userID);
 	
-		$this->table->set_heading(array('Date', 'Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Abs' ));
+		$this->table->set_heading(array('Date', 'Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders' ));
 		
 		if($result){
 			foreach($result->result() as $row){
@@ -105,9 +105,8 @@ class Loggedinathlete extends CI_Controller {
 				$quads = $row->quads;
 				$hamstrings = $row->hamstrings;
 				$shoulders = $row->shoulders;
-				$abs = $row->abs;
 			
-				$this->table->add_row(array($date, $chest, $back, $bis, $tris,$quads,$hamstrings,$shoulders,$abs));
+				$this->table->add_row(array($date, $chest, $back, $bis, $tris,$quads,$hamstrings,$shoulders));
 			}
 		}
 	
@@ -126,6 +125,13 @@ class Loggedinathlete extends CI_Controller {
 	{
 		$this->load->view('loggedinheader');
 		$this->load->view('add_day');
+		$this->load->view('footer');
+	}
+	
+	public function add_date_cardio()
+	{
+		$this->load->view('loggedinheader');
+		$this->load->view('add_date_cardio');
 		$this->load->view('footer');
 	}
 	
@@ -176,6 +182,30 @@ class Loggedinathlete extends CI_Controller {
 
 			$this->load->model('Model');
 			if($this->Model->addNewWeight($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders)){
+				$this->weighttraining();
+			}
+		}
+	}
+		
+	public function add_new_cardio(){
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('date', 'date', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('distance', 'distance', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('time', 'time', 'trim|required|xss_clean');
+		
+		if($this->form_validation->run() == FALSE){
+			
+			$this->add_date_cardio();
+		}
+		else{
+			$userID = $this->session->userdata('userID');
+			$date = $this->input->post('date');
+			$distance = $this->input->post('distance');
+			$time = $this->input->post('time');
+
+			$this->load->model('Model');
+			if($this->Model->addNewCardio($userID, $date, $distance, $time)){
 				$this->weighttraining();
 			}
 		}
