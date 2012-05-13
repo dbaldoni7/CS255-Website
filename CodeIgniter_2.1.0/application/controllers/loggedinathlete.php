@@ -18,8 +18,29 @@ class Loggedinathlete extends CI_Controller {
 	
 	public function events()
 	{
+		$teamID = $this->session->userdata('teamID');	
+		$result = $this->Model->getEvents($teamID);
+	
+		$this->table->set_heading(array('Title', 'Location', 'Date'));
+		
+		foreach($result->result() as $row){
+			$eventName = $row->eventname;
+			$eventDate = $row->date;
+			$eventLoc = $row->location;
+			$eventID = $row->eventID;
+		
+			$event = anchor('loggedinathlete/eventresults/'.$eventID, $eventName);
+			$this->table->add_row(array($event, $eventLoc, $eventDate));
+		}
+	
+	
+		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
+		$this->table->set_template($tmpl);
+	
+		$data['table'] = $this->table->generate();
+		
 		$this->load->view('loggedinheader');
-		$this->load->view('events');
+		$this->load->view('events',$data);
 		$this->load->view('footer');
 	}
 	
@@ -103,6 +124,7 @@ class Loggedinathlete extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('welcome');
 	}
+
 }
 
 /* End of file loggedinathlete.php */

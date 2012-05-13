@@ -1,4 +1,5 @@
 <?php
+
 if ($this->session->userdata('logged_in'))
 {
 	$this->load->helper('form');
@@ -12,8 +13,9 @@ if ($this->session->userdata('logged_in'))
 		echo form_close();
 		
 		echo form_submit('add_new_event', 'Delete Event');
-	
+		
 	}
+	echo $table;
 }
 else
 {

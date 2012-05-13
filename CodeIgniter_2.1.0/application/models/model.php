@@ -69,4 +69,14 @@ class Model extends CI_Model{
 		}
 		else return FALSE;
 	}
+	
+	public function getEvents($teamID){
+		
+		$queryStr = "select * from Event where teamID = '$teamID'";
+		$result = $this->db->query($queryStr);
+		if($result->num_rows() > 0){
+			return $result;	
+		}
+		else return FALSE;
+	}
 }
