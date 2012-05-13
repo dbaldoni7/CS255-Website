@@ -67,6 +67,14 @@ class Model extends CI_Model{
 		else return FALSE; 
 	}
 	
+	public function addNewCardio($userID, $date, $distance, $time){
+		$queryStr = "insert into Cardio (userID, date, distance, time) values (?, ?, ?, ?)";
+		if($this->db->query($queryStr, array($userID, $date, $distance, $time))){
+			return TRUE;
+		}
+		else return FALSE; 
+	}
+	
 	public function changePassword($userID, $oldpassword, $newpassword){
 		$sha_pass_old = sha1($oldpassword);
 		$queryStr = "Select password from Users where userID = $userID";
