@@ -58,6 +58,14 @@ class Model extends CI_Model{
 		}
 		else return FALSE; 
 	}
+		
+	public function addNewWeight($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders){
+		$queryStr = "insert into Weight (userID, date, chest, biceps, triceps, quads, hamstrings, back, shoulders) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		if($this->db->query($queryStr, array($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders))){
+			return TRUE;
+		}
+		else return FALSE; 
+	}
 	
 	public function changePassword($userID, $oldpassword, $newpassword){
 		$sha_pass_old = sha1($oldpassword);

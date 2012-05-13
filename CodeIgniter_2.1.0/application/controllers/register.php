@@ -46,7 +46,6 @@ class Register extends CI_Controller {
 			$teamID = $this->Model->registerCoach($name, $email, $password, $school, $sport);
 			if($teamID){
 //				$this->sendInviteEmails($invitelist, $teamID, $name, $school, $sport);
-				$this->session->userdata('logged_in') == TRUE;
 				$this->load->view('loggedinheader');
 				$this->load->view('profile');
 				$this->load->view('footer');
@@ -83,7 +82,6 @@ class Register extends CI_Controller {
 			
 			$this->load->model('Model');
 			if($this->Model->registerAthlete($teamID, $name, $email, $password, $gradyear, $bio)){
-					$this->session->userdata('logged_in') == TRUE;
 					$this->load->view('loggedinheader');
 					$this->load->view('profile');
 					$this->load->view('footer');

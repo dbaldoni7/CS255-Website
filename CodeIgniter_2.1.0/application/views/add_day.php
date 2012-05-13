@@ -3,10 +3,11 @@ if ($this->session->userdata('logged_in'))
 {
 	$this->load->helper('form');
 
-	echo "<h2>Add Day</h2>";
-	echo form_open('loggedinathlete/weighttraining');
-	echo form_label('Day', 'day');
-	echo form_input('day', set_value('day'));
+	echo "<h2>Add Date</h2>";
+	echo validation_errors();
+	echo form_open('loggedinathlete/add_new_weight');
+	echo form_label('Date', 'date');
+	echo form_input('date', 'XXXX-XX-XX');
 	echo "</br>";
 	echo form_label('Chest', 'chest');
 	echo form_input('chest', set_value('chest'));
@@ -28,9 +29,6 @@ if ($this->session->userdata('logged_in'))
 	echo "</br>";
 	echo form_label('Shoulders', 'shoulders');
 	echo form_input('shoulders', set_value('shoulders'));
-	echo "</br>";
-	echo form_label('Abs', 'abs');
-	echo form_input('abs', set_value('abs'));
 	echo "</br>";
 	echo form_submit('add day', 'Add');
 	echo form_submit('cancel', 'Cancel');
