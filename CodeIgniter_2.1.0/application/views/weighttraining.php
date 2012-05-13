@@ -11,6 +11,8 @@ if ($this->session->userdata('logged_in'))
 		echo form_close();
 	
 		echo $table;
+		
+		echo $cardio_table;
 	}
 	else{
 		

@@ -93,7 +93,7 @@ class Loggedinathlete extends CI_Controller {
 		$userID = $this->session->userdata('userID');	
 		$result = $this->Model->getWeightData($userID);
 	
-		$this->table->set_heading(array('Date', 'Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Abs' ));
+		$this->table->set_heading(array('Date', 'Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders'));
 		
 		if($result){
 			foreach($result->result() as $row){
@@ -105,9 +105,8 @@ class Loggedinathlete extends CI_Controller {
 				$quads = $row->quads;
 				$hamstrings = $row->hamstrings;
 				$shoulders = $row->shoulders;
-				$abs = $row->abs;
 			
-				$this->table->add_row(array($date, $chest, $back, $bis, $tris,$quads,$hamstrings,$shoulders,$abs));
+				$this->table->add_row(array($date, $chest, $back, $bis, $tris,$quads,$hamstrings,$shoulders));
 			}
 		}
 	
@@ -116,6 +115,27 @@ class Loggedinathlete extends CI_Controller {
 		$this->table->set_template($tmpl);
 	
 		$data['table'] = $this->table->generate();
+		
+		//cardio table
+		$result = $this->Model->getCardioData($userID);
+	
+		$this->table->set_heading(array('Date', 'Distance', 'Time'));
+		
+		if($result){
+			foreach($result->result() as $row){
+				$date = $row->date;
+				$dist = $row->distance;
+				$time = $row->time;
+			
+				$this->table->add_row(array($date, $dist, $time));
+			}
+		}
+	
+	
+		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
+		$this->table->set_template($tmpl);
+	
+		$data['cardio_table'] = $this->table->generate();
 		
 		$this->load->view('loggedinheader');
 		$this->load->view('weighttraining', $data);

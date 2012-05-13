@@ -60,7 +60,7 @@ class Model extends CI_Model{
 	}
 		
 	public function addNewWeight($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders){
-		$queryStr = "insert into Weight (userID, date, chest, biceps, triceps, quads, hamstrings, back, shoulders) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$queryStr = "insert into Weight (userID, date, chest, biceps, triceps, quads, hamstrings, back, shoulders) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		if($this->db->query($queryStr, array($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders))){
 			return TRUE;
 		}
@@ -124,6 +124,16 @@ class Model extends CI_Model{
 	public function getWeightData($userID){
 		
 		$queryStr = "select * from Weight where userID = '$userID'";
+		$result = $this->db->query($queryStr);
+		if($result->num_rows() > 0){
+			return $result;	
+		}
+		else return FALSE;
+	}
+	
+	public function getCardioData($userID){
+		
+		$queryStr = "select * from Cardio where userID = '$userID'";
 		$result = $this->db->query($queryStr);
 		if($result->num_rows() > 0){
 			return $result;	
