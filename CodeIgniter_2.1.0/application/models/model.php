@@ -51,6 +51,14 @@ class Model extends CI_Model{
 		else return 0; 
 	}
 	
+	public function addNewEvent($teamID, $eventname, $date, $location){
+		$queryStr = "insert into Event (teamID, date, location, eventname) values (?, ?, ?, ?)";
+		if($this->db->query($queryStr, array($teamID, $date, $location, $eventname))){
+			return TRUE;
+		}
+		else return FALSE; 
+	}
+	
 	public function doesUserExist($email){
 		$queryStr = "select * from Users where email = '$email'";
 		$query = $this->db->query($queryStr);

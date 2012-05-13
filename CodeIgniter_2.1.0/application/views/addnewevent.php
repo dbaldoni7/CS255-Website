@@ -4,7 +4,8 @@ if ($this->session->userdata('logged_in'))
 	$this->load->helper('form');
 	
 	echo "<h1>Add New Event</h1>";
-	echo form_open('loggedinathlete/events');
+	echo form_open('loggedinathlete/add_new_event');
+	echo validation_errors();
 	echo form_label('Event Name', 'eventname');
 	echo form_input('eventname');
 	echo "</br>";

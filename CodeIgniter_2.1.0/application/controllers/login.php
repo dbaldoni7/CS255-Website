@@ -18,22 +18,10 @@ class Login extends CI_Controller {
 			$row = $this->Model->getUser($email, $password);
 			if($row){
 				//login
-				$this->setUserSession($row);
 				$admin = $row->admin;
+				$this->setUserSession($row, $admin);
 				
-				if($admin == 0)
-				{
-					$bio = $row->bio;
-					$gradyear = $row->gradyear;
-					$this->session->set_userdata('bio', $bio);
-					$this->session->set_userdata('gradyear', $gradyear);
-					redirect('loggedinathlete/profile');
-				}
-				
-				else if($admin == 1)
-				{
-					redirect('loggedinathlete/profile');				
-				}
+				redirect('loggedinathlete/profile');
 			}
 			else{
 				$this->load->view('welcome_message');
@@ -42,7 +30,7 @@ class Login extends CI_Controller {
 				
 	}
 		
-	public function setUserSession($row){
+	public function setUserSession($row, $admin){
 		
 		$userID = $row->userID;
 		$name = $row->name;
@@ -53,6 +41,14 @@ class Login extends CI_Controller {
 		
 		$school = $team_row->school;
 		$sport = $team_row->sport;
+		
+		if($admin == 0)
+		{
+			$bio = $row->bio;
+			$gradyear = $row->gradyear;
+			$this->session->set_userdata('bio', $bio);
+			$this->session->set_userdata('gradyear', $gradyear);
+		}
 		
 		$this->session->set_userdata('logged_in', TRUE);
 		$this->session->set_userdata('name', $name);

@@ -5,8 +5,8 @@ if ($this->session->userdata('logged_in'))
 	
 	echo "<h2>".$this->session->userdata('name')."</h2>";
 	echo form_open('');
-	echo ('<b>School/Team Name</b></br></br>');
-	echo '<b>'.$this->session->userdata('school') .' - '. $this->session->userdata('sport').'</b></br></br>';
+	echo ('<h4><u>School - Sport</u></h4>');
+	echo $this->session->userdata('school') .' - '. $this->session->userdata('sport').'</br></br>';
 	
 	if ($this->session->userdata('admin') == 0) 
 	{

@@ -2,7 +2,7 @@
 
 class Loggedinathlete extends CI_Controller {
 	
-	public function addnewevent()
+	public function displayaddnewevent()
 	{
 		$this->load->view('loggedinheader');
 		$this->load->view('addnewevent');
@@ -56,6 +56,31 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('loggedinheader');
 		$this->load->view('add_day');
 		$this->load->view('footer');
+	}
+	
+	public function add_new_event(){
+		
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('eventname', 'event name', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('date', 'date', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('location', 'location', 'trim|required|xss_clean');
+		
+		if($this->form_validation->run() == FALSE){
+			
+			$this->displayaddnewevent();
+		}
+		else{
+			$eventname = $this->input->post('eventname');
+			$date = $this->input->post('date');
+			$location = $this->input->post('location');
+			$teamID = $this->session->userdata('teamID');
+			
+			$this->load->model('Model');
+			if($this->Model->addNewEvent($teamID, $eventname, $date, $location)){
+				$this->events();
+			}
+		}
 	}
 	
 	public function invite_more_athletes()
