@@ -23,14 +23,16 @@ class Loggedinathlete extends CI_Controller {
 	
 		$this->table->set_heading(array('Title', 'Location', 'Date'));
 		
-		foreach($result->result() as $row){
-			$eventName = $row->eventname;
-			$eventDate = $row->date;
-			$eventLoc = $row->location;
-			$eventID = $row->eventID;
-		
-			$event = anchor('loggedinathlete/eventresults/'.$eventID, $eventName);
-			$this->table->add_row(array($event, $eventLoc, $eventDate));
+		if($result){
+			foreach($result->result() as $row){
+				$eventName = $row->eventname;
+				$eventDate = $row->date;
+				$eventLoc = $row->location;
+				$eventID = $row->eventID;
+			
+				$event = anchor('loggedinathlete/eventresults/'.$eventID, $eventName);
+				$this->table->add_row(array($event, $eventLoc, $eventDate));
+			}
 		}
 	
 	
@@ -88,8 +90,35 @@ class Loggedinathlete extends CI_Controller {
 	
 	public function weighttraining()
 	{
+		$userID = $this->session->userdata('userID');	
+		$result = $this->Model->getWeightData($userID);
+	
+		$this->table->set_heading(array('Date', 'Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Abs' ));
+		
+		if($result){
+			foreach($result->result() as $row){
+				$date = $row->date;
+				$chest = $row->chest;
+				$back = $row->back;
+				$bis = $row->biceps;
+				$tris = $row->triceps;
+				$quads = $row->quads;
+				$hamstrings = $row->hamstrings;
+				$shoulders = $row->shoulders;
+				$abs = $row->abs;
+			
+				$this->table->add_row(array($date, $chest, $back, $bis, $tris,$quads,$hamstrings,$shoulders,$abs));
+			}
+		}
+	
+	
+		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
+		$this->table->set_template($tmpl);
+	
+		$data['table'] = $this->table->generate();
+		
 		$this->load->view('loggedinheader');
-		$this->load->view('weighttraining');
+		$this->load->view('weighttraining', $data);
 		$this->load->view('footer');
 	}
 	

@@ -12,8 +12,6 @@ if ($this->session->userdata('logged_in'))
 		echo form_submit('add_new_event', 'Add Event');
 		echo form_close();
 		
-		echo form_submit('add_new_event', 'Delete Event');
-		
 	}
 	echo $table;
 }

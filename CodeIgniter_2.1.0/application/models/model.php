@@ -112,4 +112,14 @@ class Model extends CI_Model{
 		}
 		else return FALSE;
 	}
+	
+	public function getWeightData($userID){
+		
+		$queryStr = "select * from Weight where userID = '$userID'";
+		$result = $this->db->query($queryStr);
+		if($result->num_rows() > 0){
+			return $result;	
+		}
+		else return FALSE;
+	}
 }
