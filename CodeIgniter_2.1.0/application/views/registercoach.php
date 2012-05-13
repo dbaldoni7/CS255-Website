@@ -26,9 +26,9 @@ echo "</br>";
 echo form_label('School', 'school');
 echo form_input('school', set_value('school'));
 echo "</br>";
-echo form_label('Athletes to invite', 'invitelist');
+/*echo form_label('Athletes to invite', 'invitelist');
 echo form_textarea('invitelist', '(Comma separated email addresses please)');
-echo "</br>";
+echo "</br>";*/
 echo form_submit('confirmreg', 'Confirm registration');
 echo form_close();
 ?>

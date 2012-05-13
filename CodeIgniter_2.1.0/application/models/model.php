@@ -59,6 +59,31 @@ class Model extends CI_Model{
 		else return FALSE; 
 	}
 	
+	public function changePassword($userID, $oldpassword, $newpassword){
+		$sha_pass_old = sha1($oldpassword);
+		$queryStr = "Select password from Users where userID = $userID";
+		
+		$query = $this->db->query($queryStr);
+		if ($query->num_rows() > 0)
+		{
+	   		$row = $query->row(); 
+			$pass = $row->password;
+			if ($pass != $sha_pass_old)
+			{
+				echo "Sorry, but you entered in your current password incorrectly";
+				?><a href="<?php echo site_url('loggedinathlete/profile') ?>">Go back to profile</a><?php
+				return FALSE;
+			}
+		}
+		
+		$sha_pass_new = sha1($newpassword);
+		$queryStr = "update Users set password = '$sha_pass_new' where userID = $userID";
+		if($this->db->query($queryStr)){
+			return TRUE;
+		}
+		else return FALSE; 
+	}
+	
 	public function doesUserExist($email){
 		$queryStr = "select * from Users where email = '$email'";
 		$query = $this->db->query($queryStr);

@@ -3,6 +3,8 @@ if ($this->session->userdata('logged_in'))
 {
 	$this->load->helper('form');
 	
+	echo validation_errors();
+
 	echo "<h2>".$this->session->userdata('name')."</h2>";
 	echo form_open('');
 	echo ('<h4><u>School - Sport</u></h4>');
@@ -23,14 +25,13 @@ if ($this->session->userdata('logged_in'))
 	{
 		echo form_close();
 		echo form_open('loggedinathlete/invite_more_athletes');
-		echo validation_errors();
-		echo form_label('Invite more athletes', 'invitelist');
+		echo form_label('Invite athletes', 'invitelist');
 		echo form_textarea('invitelist', '(Comma separated email addresses please)');
 		echo form_submit('add_more_athletes', 'Add');
 		echo form_close();
 	}
 	
-	echo form_open('');
+	echo form_open('loggedinathlete/change_password');
 	echo "<h2>Change Password</h2>";
 	echo form_label('current password', 'current');
 	echo form_password('current');
