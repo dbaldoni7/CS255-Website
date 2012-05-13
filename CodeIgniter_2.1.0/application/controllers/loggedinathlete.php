@@ -16,13 +16,6 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function coachprofile()
-	{
-		$this->load->view('loggedinheader');
-		$this->load->view('coachprofile');
-		$this->load->view('footer');
-	}
-	
 	public function events()
 	{
 		$this->load->view('loggedinheader');
@@ -71,7 +64,7 @@ class Loggedinathlete extends CI_Controller {
 		$this->form_validation->set_rules('invitelist', 'Invite List', 'trim|required|xss_clean');
 		if($this->form_validation->run() == FALSE)
 		{
-			$this->coachprofile();
+			$this->profile();
 		}
 		else
 		{
@@ -98,7 +91,7 @@ class Loggedinathlete extends CI_Controller {
 		if(mail($inviteEmails, $subject, $message, $headers))
 		{
 			echo "<br/>You have successfully invited these athletes to register for your team: $inviteEmails<br/>";
-			?><a href="<?php echo site_url('loggedinathlete/coachprofile') ?>">Go back to profile</a><?php
+			?><a href="<?php echo site_url('loggedinathlete/profile') ?>">Go back to profile</a><?php
 		}
 		else
 		{

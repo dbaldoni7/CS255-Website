@@ -47,7 +47,7 @@ class Register extends CI_Controller {
 			if($teamID){
 				echo "You have been registered successfully<br/>";
 				$this->sendInviteEmails($invitelist, $teamID, $name, $school, $sport);
-				?><a href="<?php echo site_url('loggedinathlete/coachprofile') ?>">Go to profile</a><?php
+				?><a href="<?php echo site_url('loggedinathlete/profile') ?>">Go to profile</a><?php
 			}
 		}
 	}

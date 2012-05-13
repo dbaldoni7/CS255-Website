@@ -40,7 +40,7 @@ class Login extends CI_Controller {
 				
 				else if($admin == 1)
 				{
-					redirect('loggedinathlete/coachprofile');				
+					redirect('loggedinathlete/profile');				
 				}
 			}
 			else{
