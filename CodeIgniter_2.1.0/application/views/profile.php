@@ -2,9 +2,9 @@
 
 $this->load->helper('form');
 
-echo "<h1>".$this->session->userdata('name')."</h1>";
+echo "<h2>".$this->session->userdata('name')."</h2>";
 echo form_open('');
-echo ('<b>School/Team Name</b></br></br>');
+echo '<b>'.$this->session->userdata('school') .' - '. $this->session->userdata('sport').'</b></br></br>';
 echo ('<b>Graduation Year</b></br>');
 echo $this->session->userdata('gradyear');
 echo "<br/><br/>";

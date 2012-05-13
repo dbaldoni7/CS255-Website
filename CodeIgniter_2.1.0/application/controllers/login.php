@@ -2,7 +2,6 @@
 class Login extends CI_Controller {
 
 	public function userLogin(){
-		$this->load->model('Model');
 		$this->load->library('form_validation');
 	
 		$this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|xss_clean');
@@ -19,15 +18,8 @@ class Login extends CI_Controller {
 			$row = $this->Model->getUser($email, $password);
 			if($row){
 				//login
-				$userID = $row->userID;
-				$name = $row->name;
+				$this->setUserSession($row);
 				$admin = $row->admin;
-
-				$this->session->set_userdata('logged_in', TRUE);
-				$this->session->set_userdata('name', $name);
-				$this->session->set_userdata('admin', $admin);
-				$this->session->set_userdata('userID', $userID);
-
 				
 				if($admin == 0)
 				{
@@ -50,6 +42,25 @@ class Login extends CI_Controller {
 				
 	}
 		
+	public function setUserSession($row){
 		
+		$userID = $row->userID;
+		$name = $row->name;
+		$admin = $row->admin;
+		$teamID = $row->teamID;
+		
+		$team_row = $this->Model->getTeamData($teamID);
+		
+		$school = $team_row->school;
+		$sport = $team_row->sport;
+		
+		$this->session->set_userdata('logged_in', TRUE);
+		$this->session->set_userdata('name', $name);
+		$this->session->set_userdata('admin', $admin);
+		$this->session->set_userdata('userID', $userID);
+		$this->session->set_userdata('teamID', $teamID);
+		$this->session->set_userdata('school', $school);
+		$this->session->set_userdata('sport', $sport);
+	}
 		
 }

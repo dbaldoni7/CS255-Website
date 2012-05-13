@@ -105,6 +105,11 @@ class Loggedinathlete extends CI_Controller {
 			echo "Sorry you messed up!";
 		}
 	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect('welcome');
+	}
 }
 
 /* End of file loggedinathlete.php */

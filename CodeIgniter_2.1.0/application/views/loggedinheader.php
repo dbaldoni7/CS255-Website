@@ -25,5 +25,6 @@
 <a href="events">Events</a> | 
 <a href="profile">My Profile</a> | 
 <a href="weighttraining">Weight Data</a> | 
-<a href="analysis">Analysis</a>
+<a href="analysis">Analysis</a> |
+<a href="logout">logout</a>
 <div id = 'welcome'>Welcome, <a href="profile"><?php echo $this->session->userdata('name'); ?></a> </div>
