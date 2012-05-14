@@ -22,7 +22,9 @@ if ($this->session->userdata('logged_in'))
 
 	}
 	else{
-		
+		echo "<h1>Training Data</h1>";
+		echo "<h2>Athletes</h2>";
+		echo $athlete_list;
 		
 	}
 

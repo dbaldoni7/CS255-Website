@@ -148,4 +148,14 @@ class Model extends CI_Model{
 		}
 		else return FALSE;
 	}
+	
+	public function getAllAthletes($teamID){
+		
+		$queryStr = "select * from Users where teamID = '$teamID' and admin = 0";
+		$result = $this->db->query($queryStr);
+		if($result->num_rows() > 0){
+			return $result;	
+		}
+		else return FALSE;
+	}
 }
