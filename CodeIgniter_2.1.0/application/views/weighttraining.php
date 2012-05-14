@@ -9,7 +9,7 @@ if ($this->session->userdata('logged_in'))
 		echo form_open('loggedinathlete/add_date');
 		echo form_submit('add_date', 'Add Date');
 		echo form_close();
-	
+		echo "(lb/reps)";
 		echo $table;
 	
 		echo "<h2>Cardio</h2>";

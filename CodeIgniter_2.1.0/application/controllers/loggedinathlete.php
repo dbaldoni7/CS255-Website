@@ -81,11 +81,31 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
-	public function help()
-	{
-		$this->load->view('loggedinheader');
-		$this->load->view('help');
-		$this->load->view('footer');
+	public function add_race()
+	{	
+/*		$eventID = $this->uri->segment(3, 0);
+
+	
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('eventname', 'event name', 'trim|required|xss_clean');
+		
+		if($this->form_validation->run() == FALSE){
+			
+			$this->eventresults();
+		}
+		else{
+			$eventname = $this->input->post('eventname');
+			$date = $this->input->post('date');
+			$location = $this->input->post('location');
+			$teamID = $this->session->userdata('teamID');
+			
+			$this->load->model('Model');
+			if($this->Model->addNewEvent($teamID, $eventname, $date, $location)){
+				$this->events();
+			}
+		}
+	*/
 	}
 	
 	public function weighttraining()
@@ -211,9 +231,23 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->library('form_validation');
 		
 		$this->form_validation->set_rules('date', 'date', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('chest', 'chest', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('chest_r', 'chest_r', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('biceps', 'biceps', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('biceps_r', 'biceps_r', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('triceps', 'triceps', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('triceps_r', 'triceps_r', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('quads', 'quads', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('quads_r', 'quads_r', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('hamstrings', 'hamstrings', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('hamstrings_r', 'hamstrings_r', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('back', 'back', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('back_r', 'back_r', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('shoulders', 'shoulders', 'trim|numeric|xss_clean');
+		$this->form_validation->set_rules('shoulders_r', 'shoulders_r', 'trim|numeric|xss_clean');
+
 		
 		if($this->form_validation->run() == FALSE){
-			
 			$this->add_date();
 		}
 		else{
