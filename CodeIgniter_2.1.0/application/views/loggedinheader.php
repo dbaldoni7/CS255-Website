@@ -20,6 +20,8 @@
    			left:15%;
   			width:71%;
   			position:relative;
+  			border: 1px solid #D0D0D0;
+			-webkit-box-shadow: 0 0 8px #D0D0D0;
 		}
 		#container {
   			 min-height:100%;
@@ -28,25 +30,27 @@
 		}
 		#body {
    			padding:15px;
-  			 padding-bottom:30%;/* Height of the footer */
+  			 padding-bottom:25%;
   			 background: white;  
   			 left:15%;
   			 width:70%;
   			 height 100%;
   			 position:relative;
   			 border: 2px black;
-  			 background:#EBEBEB; 
+  			 background:#EBEBEB;
+			border: 1px solid #D0D0D0;
+			-webkit-box-shadow: 0 0 8px #D0D0D0;
+	} 
 		}	
 		#footer {
    			position:absolute;
-  			 bottom:0;
-   			width:100%;
+  			bottom:0;
    			height:60px;   /* Height of the footer */
    			background:#A2B5CD;
    			left:15%;
   			width:72.5%;
-  			
-}	
+  			text-align:center;
+  		}	
 	</style>
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	    <script type="text/javascript" src="<?=base_url()?>jquery-1.7.2.min.js"></script>

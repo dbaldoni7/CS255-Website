@@ -9,19 +9,12 @@ h3{
 }
 
 body{ 
-		font-family: sans-serif;
+		font-family: "Comic Sans MS", cursive, sans-serif;
 	}
 	
 table{
 	border: 1px;
 	background-color: white;
-}
-
-#center{
-	position:absolute;
-	right: 15%;
-	width: 70%;
-	background-color:white;
 }
 	
 	
@@ -47,9 +40,6 @@ input[type=text], input[type=password] {
 
 input[type=submit] , form a {
     border: 2px groove black;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 6px;
     text-decoration: none;
     font-size: 12px;
     -moz-border-radius: 4px;
@@ -57,6 +47,6 @@ input[type=submit] , form a {
     background: #cfdeff;
     color: black;
     box-shadow: 0 1px 0 white;
-    -moz-box-shadow: 0 1px 0 white;
-    -webkit-box-shadow: 0 1px 0 white;
+    -moz-box-shadow: 0 3px 0 #D0D0D0;
+    -webkit-box-shadow: 0 3px 0 #D0D0D0;
 }

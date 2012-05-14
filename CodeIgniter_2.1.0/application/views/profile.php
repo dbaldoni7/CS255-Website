@@ -7,7 +7,7 @@ if ($this->session->userdata('logged_in'))
 
 	echo "<h2>".$this->session->userdata('name')."</h2>";
 	echo form_open('loggedinathlete/edit_bio');
-	echo ('<h4><u>School - Sport</u></h4>');
+	//echo '<h4><u>School - Sport</u></h4>';
 	echo $this->session->userdata('school') .' - '. $this->session->userdata('sport').'</br></br>';
 	
 	if ($this->session->userdata('admin') == 0) 
@@ -16,7 +16,7 @@ if ($this->session->userdata('logged_in'))
 		echo $this->session->userdata('gradyear');
 		echo "<br/><br/>";
 		echo form_textarea('bio', $this->session->userdata('bio'));
-		echo "</br>";
+		//echo "<br/>";
 		echo form_submit('edit', 'Edit Bio');
 		echo form_close();
 	}
@@ -25,7 +25,7 @@ if ($this->session->userdata('logged_in'))
 	{
 		echo form_close();
 		echo form_open('loggedinathlete/invite_more_athletes');
-		echo form_label('Invite athletes', 'invitelist');
+		echo "Invite Athletes: <br/>";
 		echo form_textarea('invitelist', '(Comma separated email addresses please)');
 		echo form_submit('add_more_athletes', 'Add');
 		echo form_close();

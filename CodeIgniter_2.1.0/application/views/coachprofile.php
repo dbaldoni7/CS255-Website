@@ -4,9 +4,7 @@
 $this->load->helper('form');
 
 echo "<h1>".$this->session->userdata('name')."</h1>";
-echo form_open('');
 echo ('<b>School/Team Name</b></br>');
-echo form_close('');
 
 echo form_open('loggedinathlete/invite_more_athletes');
 echo validation_errors();
