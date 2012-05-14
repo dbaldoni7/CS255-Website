@@ -111,24 +111,76 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('footer');
 	}
 	
+/*	public function getDataPlease(){
+	 $str = '"cols": [
+        {"id":"","label":"Topping","pattern":"","type":"string"},
+        {"id":"","label":"Slices","pattern":"","type":"number"}
+      ],
+  "rows": [
+        {"c":[{"v":"Mushrooms","f":null},{"v":3,"f":null}]},
+        {"c":[{"v":"Onions","f":null},{"v":1,"f":null}]},
+        {"c":[{"v":"Olives","f":null},{"v":1,"f":null}]},
+        {"c":[{"v":"Zucchini","f":null},{"v":1,"f":null}]},
+        {"c":[{"v":"Pepperoni","f":null},{"v":2,"f":null}]}
+      ]';
+      return $str;
+	}*/
+	
 	public function eventresults()
 	{
-		$this->load->view('loggedinheader');
-		$this->load->view('eventresults');
-		$this->load->view('footer');
-	}
+		$teamID = $this->session->userdata('teamID');
+		$result = $this->Model->getAllAthletes($teamID);
+		
+		$this->table->set_heading(array('Athlete'));
+		
+		if($result->num_rows() > 0){
+			foreach($result->result() as $row){
+				$userID = $row->userID;
+				$name = $row->name;
+			//	$link = anchor(base_url() . 'index.php/loggedinathlete/coachWeightTables/'.$userID, $name);
+				$this->table->add_row(array($name));
+			}
+		}
+		
+		$tmpl = array( 'table_open'  => '<table border="2" cellpadding="1" cellspacing="1"' );
+		$this->table->set_template($tmpl);
 	
-	public function addathletes()
-	{
+		$data['athlete_list'] = $this->table->generate();
+		
 		$this->load->view('loggedinheader');
-		$this->load->view('addathletes');
+		$this->load->view('eventresults', $data);
 		$this->load->view('footer');
 	}
 	
 	public function analysis()
 	{
-		$this->load->view('loggedinheader');
-		$this->load->view('analysis');
+		$userID = $this->session->userdata('userID');
+		$this->load->model('Model');
+		$result = $this->Model->getCardioData($userID);
+		
+		$datearray = NULL;
+		$milesarray = NULL;
+		$timearray = NULL;
+				
+		if($result){
+			$i = 0;
+			$datearray = array();
+			$milesarray = array();
+			$timearray = array();
+			foreach($result->result() as $row){
+				$datearray[$i] = $row->date;
+				$milesarray[$i] = $row->distance;
+				$timearray[$i] = $row->time;
+				$i++;	
+			}
+			$data['date'] = $datearray;
+			$data['miles'] = $milesarray;
+			$data['time'] = $timearray;
+			$data['num_rows'] = $i;
+		}
+	
+		$this->load->view('loggedinheader', $data);
+		$this->load->view('analysis', $data);
 		$this->load->view('footer');
 	}
 	
@@ -165,7 +217,6 @@ class Loggedinathlete extends CI_Controller {
 				$this->races();
 			}
 		}
-	
 	}
 	
 	public function weighttraining()

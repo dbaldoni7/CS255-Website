@@ -24,7 +24,8 @@ if ($this->session->userdata('logged_in'))
 		echo "<h2>Athletes</h2>";
 		
 		if(isset($coach_table)){
-			echo "<h3>Weight</h3>";
+			echo "<h3>Weight (lbs/rep)</h3>";
+
 			echo $coach_table;
 			echo "<br/>";
 		}
