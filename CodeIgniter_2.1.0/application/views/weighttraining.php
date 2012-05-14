@@ -24,10 +24,12 @@ if ($this->session->userdata('logged_in'))
 		echo "<h2>Athletes</h2>";
 		
 		if(isset($coach_table)){
+			echo "<h3>Weight (lbs/rep)</h3>";
 			echo $coach_table;
 			echo "<br/>";
 		}
 		if(isset($coach_cardio)){
+			echo "<h3>Cardio</h3>";
 			echo $coach_cardio;
 			echo "<br/>";
 		}
