@@ -9,10 +9,10 @@ if ($this->session->userdata('logged_in'))
 	echo form_label('Date', 'date');
 	echo form_input('date', 'XXXX-XX-XX');
 	echo "</br>";
-	echo form_label('Distance', 'distance');
+	echo form_label('Distance (miles)', 'distance');
 	echo form_input('distance', set_value('distance'));
 	echo "</br>";
-	echo form_label('Time', 'time');
+	echo form_label('Time (minutes)', 'time');
 	echo form_input('time', set_value('time'));
 	echo "</br>";
 	echo form_submit('add day', 'Add');

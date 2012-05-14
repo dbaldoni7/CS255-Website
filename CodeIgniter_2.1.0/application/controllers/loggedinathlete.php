@@ -93,11 +93,7 @@ class Loggedinathlete extends CI_Controller {
 		$userID = $this->session->userdata('userID');	
 		$result = $this->Model->getWeightData($userID);
 	
-<<<<<<< HEAD
-		$this->table->set_heading(array('Date', 'Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders'));
-=======
-		$this->table->set_heading(array('Date', 'Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders' ));
->>>>>>> 2e2e163f4e070d2693ea1531d32a03d63d5ca85c
+		$this->table->set_heading(array('Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Date'));
 		
 		if($result){
 			foreach($result->result() as $row){
@@ -109,13 +105,20 @@ class Loggedinathlete extends CI_Controller {
 				$quads = $row->quads;
 				$hamstrings = $row->hamstrings;
 				$shoulders = $row->shoulders;
+				$chest_r = $row->chest_r;
+				$back_r = $row->back_r;
+				$bis_r = $row->biceps_r;
+				$tris_r = $row->triceps_r;
+				$quads_r = $row->quads_r;
+				$hamstrings_r = $row->hamstrings_r;
+				$shoulders_r = $row->shoulders_r;
 			
-				$this->table->add_row(array($date, $chest, $back, $bis, $tris,$quads,$hamstrings,$shoulders));
+				$this->table->add_row(array($chest, $chest_r, $back, $back_r, $bis, $bis_r, $tris, $tris_r, $quads, $quads_r, $hamstrings, $hamstrings_r, $shoulders, $shoulders_r, $date));
 			}
 		}
 	
-	
-		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
+		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">',   'heading_cell_start'  => '<th colspan=2>',
+                    'heading_cell_end'    => '</th>' );
 		$this->table->set_template($tmpl);
 	
 		$data['table'] = $this->table->generate();
@@ -134,7 +137,6 @@ class Loggedinathlete extends CI_Controller {
 				$this->table->add_row(array($date, $dist, $time));
 			}
 		}
-	
 	
 		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
 		$this->table->set_template($tmpl);
@@ -204,9 +206,16 @@ class Loggedinathlete extends CI_Controller {
 			$hamstrings = $this->input->post('hamstrings');
 			$back = $this->input->post('back');
 			$shoulders = $this->input->post('shoulders');
+			$chest_r = $this->input->post('chest_r');
+			$biceps_r = $this->input->post('biceps_r');
+			$triceps_r = $this->input->post('triceps_r');
+			$quads_r = $this->input->post('quads_r');
+			$hamstrings_r = $this->input->post('hamstrings_r');
+			$back_r = $this->input->post('back_r');
+			$shoulders_r = $this->input->post('shoulders_r');
 
 			$this->load->model('Model');
-			if($this->Model->addNewWeight($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders)){
+			if($this->Model->addNewWeight($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders, $chest_r, $biceps_r, $triceps_r, $quads_r, $hamstrings_r, $back_r, $shoulders_r)){
 				$this->weighttraining();
 			}
 		}
@@ -260,6 +269,25 @@ class Loggedinathlete extends CI_Controller {
 		}
 	}
 	
+	public function edit_bio(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('bio', 'bio', 'trim|xss_clean');
+		if($this->form_validation->run() == FALSE){
+			$this->profile();
+		}
+		else{
+			$userID = $this->session->userdata('userID');
+			$bio = $this->input->post('bio');
+			$this->session->set_userdata('bio', $bio);
+			
+			$this->load->model('Model');
+			if($this->Model->editBio($userID, $bio)){
+				$this->profile();
+				echo "Bio updated";
+			}
+		}
+	}
+	
 	public function invite_more_athletes()
 	{
 		$this->load->library('form_validation');
@@ -301,7 +329,7 @@ class Loggedinathlete extends CI_Controller {
 		}
 		else
 		{
-			echo "Sorry you messed up!";
+			echo "Sorry you messed up!</br>";
 			?><a href="<?php echo site_url('loggedinathlete/profile') ?>">Go back to profile</a><?php
 		}
 	}

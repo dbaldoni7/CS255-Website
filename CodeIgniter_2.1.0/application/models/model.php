@@ -59,9 +59,9 @@ class Model extends CI_Model{
 		else return FALSE; 
 	}
 		
-	public function addNewWeight($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders){
-		$queryStr = "insert into Weight (userID, date, chest, biceps, triceps, quads, hamstrings, back, shoulders) values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		if($this->db->query($queryStr, array($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders))){
+	public function addNewWeight($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders, $chest_r, $biceps_r, $triceps_r, $quads_r, $hamstrings_r, $back_r, $shoulders_r){
+		$queryStr = "insert into Weight (userID, date, chest, biceps, triceps, quads, hamstrings, back, shoulders, chest_r, biceps_r, triceps_r, quads_r, hamstrings_r, back_r, shoulders_r) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		if($this->db->query($queryStr, array($userID, $date, $chest, $biceps, $triceps, $quads, $hamstrings, $back, $shoulders, $chest_r, $biceps_r, $triceps_r, $quads_r, $hamstrings_r, $back_r, $shoulders_r))){
 			return TRUE;
 		}
 		else return FALSE; 
@@ -94,6 +94,14 @@ class Model extends CI_Model{
 		
 		$sha_pass_new = sha1($newpassword);
 		$queryStr = "update Users set password = '$sha_pass_new' where userID = $userID";
+		if($this->db->query($queryStr)){
+			return TRUE;
+		}
+		else return FALSE; 
+	}
+	
+	public function editBio($userID, $bio){
+		$queryStr = "update Users set bio = '$bio' where userID = $userID";
 		if($this->db->query($queryStr)){
 			return TRUE;
 		}

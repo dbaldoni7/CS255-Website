@@ -24,7 +24,7 @@
 <body>
 <a href="<?php echo base_url(); ?>index.php/loggedinathlete/events">Events</a> | 
 <a href="<?php echo base_url(); ?>index.php/loggedinathlete/profile">My Profile</a> | 
-<a href="<?php echo base_url(); ?>index.php/loggedinathlete/weighttraining">Weight Data</a> | 
-<a href="<?php echo base_url(); ?>index.php/loggedinathlete/analysis">Analysis</a> |
-<a href="<?php echo base_url(); ?>index.php/loggedinathlete/logout">logout</a>
-<div id = 'welcome'>Welcome, <a href="<?php echo base_url(); ?>index.php/loggedinathlete/profile"><?php echo $this->session->userdata('name'); ?></a> </div>
+<a href="<?php echo base_url(); ?>index.php/loggedinathlete/weighttraining">Training Data</a> | 
+<a href="<?php echo base_url(); ?>index.php/loggedinathlete/analysis">Analysis</a>
+<div id = 'welcome'>Welcome, <a href="<?php echo base_url(); ?>index.php/loggedinathlete/profile"><?php echo $this->session->userdata('name'); ?></a> | 
+<a href="<?php echo base_url(); ?>index.php/loggedinathlete/logout">logout</a></div>
