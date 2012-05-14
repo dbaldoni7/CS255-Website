@@ -39,12 +39,13 @@
 		}	
 		#footer {
    			position:absolute;
-  			 bottom:0;
+  			bottom:0;
    			width:100%;
    			height:60px;   /* Height of the footer */
    			background:#A2B5CD;
    			left:15%;
   			width:72.5%;
+  			text-align: center;
   			
 }	
 	</style>

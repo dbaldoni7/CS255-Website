@@ -156,7 +156,7 @@ class Loggedinathlete extends CI_Controller {
 	{
 		$userID = $this->session->userdata('userID');
 		$this->load->model('Model');
-		$result = $this->Model->getCardioData($userID);
+		/*$result = $this->Model->getCardioData($userID);
 		
 		$datearray = NULL;
 		$milesarray = NULL;
@@ -177,10 +177,10 @@ class Loggedinathlete extends CI_Controller {
 			$data['miles'] = $milesarray;
 			$data['time'] = $timearray;
 			$data['num_rows'] = $i;
-		}
+		}*/
 	
-		$this->load->view('loggedinheader', $data);
-		$this->load->view('analysis', $data);
+		$this->load->view('loggedinheader');
+		$this->load->view('analysis');
 		$this->load->view('footer');
 	}
 	
