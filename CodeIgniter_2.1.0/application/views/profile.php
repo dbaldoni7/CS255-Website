@@ -6,7 +6,7 @@ if ($this->session->userdata('logged_in'))
 	echo validation_errors();
 
 	echo "<h2>".$this->session->userdata('name')."</h2>";
-	echo form_open('');
+	echo form_open('loggedinathlete/edit_bio');
 	echo ('<h4><u>School - Sport</u></h4>');
 	echo $this->session->userdata('school') .' - '. $this->session->userdata('sport').'</br></br>';
 	
