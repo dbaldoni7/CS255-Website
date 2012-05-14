@@ -32,7 +32,7 @@ if ($this->session->userdata('logged_in'))
 	}
 	
 	echo form_open('loggedinathlete/change_password');
-	echo "<h2>Change Password</h2>";
+	echo "<h3>Change Password</h3>";
 	echo form_label('current password', 'current');
 	echo form_password('current');
 	echo "</br>";
