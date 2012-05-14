@@ -54,7 +54,10 @@
 		border: 1px solid #D0D0D0;
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
-
+	
+	input[type=text], input[type=password] {
+		margin: 0 auto 1em auto;
+	}
 	</style>
 </head>
 <body>

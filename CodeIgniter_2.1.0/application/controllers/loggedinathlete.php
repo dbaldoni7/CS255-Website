@@ -8,12 +8,77 @@ class Loggedinathlete extends CI_Controller {
 		$this->load->view('addnewevent');
 		$this->load->view('footer');
 	}
+
+	public function test()
+	{
+		$this->load->view('testview');
+	}
+	
+	public function post(){
+		$val = $_POST['value'];
+		echo $val;
+	}
+	public function raceresults(){
+		if($this->uri->segment(3) > 0){
+			$race =$this->uri->segment(3);
+			$this->session->set_userdata('raceID', $race);
+		}
+		
+		$raceID = $this->session->userdata('raceID');
+		$result = $this->Model->getRaceResults($raceID);
+		if($result){
+			$data['raceresults'] = $result;
+		}
+
+		$teamID = $this->session->userdata('teamID');
+		$data['athletes'] = $this->Model->getAllAthletes($teamID);
+		
+		
+		$this->load->view('loggedinheader');
+		$this->load->view('raceresults',$data);
+		$this->load->view('footer');
+	}
 	
 	public function profile()
 	{
 		$this->load->view('loggedinheader');
 		$this->load->view('profile');
 		$this->load->view('footer');
+	}
+	
+	public function races(){
+		
+		if($this->uri->segment(3) > 0){
+			$event =$this->uri->segment(3);
+			$this->session->set_userdata('eventID', $event);
+		}
+		
+		$eventID = $this->session->userdata('eventID');
+		$result = $this->Model->getRaces($eventID);
+	
+		$this->table->set_heading(array('Race'));
+		
+		if($result){
+			foreach($result->result() as $row){
+				$name = $row->racename;
+				$raceID = $row->raceID;
+				$this->session->set_userdata('raceID', $raceID);
+		
+				$event = anchor('loggedinathlete/raceresults/'.$raceID, $name);
+				$this->table->add_row(array($event));
+			}
+		}
+	
+	
+		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
+		$this->table->set_template($tmpl);
+	
+		$data['table'] = $this->table->generate();
+		
+		$this->load->view('loggedinheader');
+		$this->load->view('races',$data);
+		$this->load->view('footer');
+		
 	}
 	
 	public function events()
@@ -30,7 +95,7 @@ class Loggedinathlete extends CI_Controller {
 				$eventLoc = $row->location;
 				$eventID = $row->eventID;
 			
-				$event = anchor('loggedinathlete/eventresults/'.$eventID, $eventName);
+				$event = anchor('loggedinathlete/races/'.$eventID, $eventName);
 				$this->table->add_row(array($event, $eventLoc, $eventDate));
 			}
 		}
@@ -83,29 +148,24 @@ class Loggedinathlete extends CI_Controller {
 	
 	public function add_race()
 	{	
-/*		$eventID = $this->uri->segment(3, 0);
-
-	
+		$eventID = $this->session->userdata('eventID');
 		$this->load->library('form_validation');
 		
-		$this->form_validation->set_rules('eventname', 'event name', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('race', 'race', 'trim|required|xss_clean');
 		
 		if($this->form_validation->run() == FALSE){
 			
-			$this->eventresults();
+			$this->races();
 		}
 		else{
-			$eventname = $this->input->post('eventname');
-			$date = $this->input->post('date');
-			$location = $this->input->post('location');
-			$teamID = $this->session->userdata('teamID');
+			$race = $this->input->post('racename');
 			
 			$this->load->model('Model');
-			if($this->Model->addNewEvent($teamID, $eventname, $date, $location)){
-				$this->events();
+			if($this->Model->addNewRaces($race, $eventID)){
+				$this->races();
 			}
 		}
-	*/
+	
 	}
 	
 	public function weighttraining()
@@ -121,7 +181,7 @@ class Loggedinathlete extends CI_Controller {
 	
 			$this->table->set_heading(array('Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Date'));
 			
-			if($result->num_rows() > 0){
+			if($result){
 				foreach($result->result() as $row){
 					$date = $row->date;
 					$chest = $row->chest;
@@ -387,7 +447,7 @@ class Loggedinathlete extends CI_Controller {
 		$teamID = $this->session->userdata('teamID');
 		$result = $this->Model->getAllAthletes($teamID);
 		
-		if($result->num_rows() > 0){
+		if($result){
 			foreach($result->result() as $row){
 				$userID = $row->userID;
 				$name = $row->name;
@@ -411,7 +471,7 @@ class Loggedinathlete extends CI_Controller {
 		$result = $this->Model->getWeightData($userID);
 	
 		$this->table->set_heading(array('Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Date'));
-		if($result->num_rows() > 0){
+		if($result){
 				foreach($result->result() as $row){
 					$date = $row->date;
 					$chest = $row->chest;

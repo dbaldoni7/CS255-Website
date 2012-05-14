@@ -4,8 +4,8 @@ h1{ font-family:"Comic Sans MS", cursive, sans-serif;
 		text-align:center;
 }
 h3{ 
-	font-family: Impact, Charcoal, sans-serif;
-	color: purple;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	color: #3399FF;
 }
 
 body{ 
@@ -13,17 +13,17 @@ body{
 	}
 	
 table{
-	border: 5px;
+	border: 1px;
+	background-color: white;
+}
+
+#center{
+	position:absolute;
+	right: 15%;
+	width: 70%;
+	background-color:white;
 }
 	
-#jar{
-	background-image:url('jar.png');
-	background-repeat:no-repeat;
-	position:absolute;
-	left: 125px;
-	width: 400px;
-	height:625px;
-}
 	
 #right{
 	position:absolute;
@@ -38,7 +38,6 @@ table{
 
 input[type=text], input[type=password] {
     display: block;
-    margin: 0 auto 1em auto;
     width: 150px;
     border: 1px solid #818181;
 	-moz-border-radius: 3px;

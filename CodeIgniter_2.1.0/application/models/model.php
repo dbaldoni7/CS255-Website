@@ -157,6 +157,16 @@ class Model extends CI_Model{
 		else return FALSE;
 	}
 	
+	public function getRaceResults($raceID){
+		
+		$queryStr = "select * from RaceResult where raceID = '$raceID'";
+		$result = $this->db->query($queryStr);
+		if($result->num_rows() > 0){
+			return $result;	
+		}
+		else return FALSE;
+	}
+	
 	public function getAllAthletes($teamID){
 		
 		$queryStr = "select * from Users where teamID = '$teamID' and admin = 0";
@@ -166,4 +176,24 @@ class Model extends CI_Model{
 		}
 		else return FALSE;
 	}
+	
+	public function getRaces($eventID){
+		
+		$queryStr = "select * from Race where eventID = '$eventID'";
+		$result = $this->db->query($queryStr);
+		if($result->num_rows() > 0){
+			return $result;	
+		}
+		else return FALSE;
+	}
+	
+	public function addNewRaces($race, $eventID){
+		$queryStr = "insert into Race (racename , eventID) values (? , ?)";
+		if($this->db->query($queryStr, array($race, $eventID))){
+			return TRUE;
+		}
+		else return FALSE; 
+	}
+		
+	
 }
