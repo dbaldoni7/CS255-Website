@@ -45,12 +45,14 @@
 		#footer {
    			position:absolute;
   			bottom:0;
+   			width:100%;
    			height:60px;   /* Height of the footer */
    			background:#A2B5CD;
    			left:15%;
   			width:72.5%;
   			text-align:center;
-  		}	
+  			
+}	
 	</style>
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	    <script type="text/javascript" src="<?=base_url()?>jquery-1.7.2.min.js"></script>

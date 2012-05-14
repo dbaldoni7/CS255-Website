@@ -46,8 +46,12 @@ if ($this->session->userdata('logged_in'))
 		
 
 		</table>
+		
 <?php
-
+	echo form_open('loggedinathlete/races');
+	echo"</br>";
+	echo form_submit('back', 'Back');
+	echo form_close();
 	}
 }
 else

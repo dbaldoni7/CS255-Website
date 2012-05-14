@@ -17,6 +17,10 @@ if ($this->session->userdata('logged_in'))
 		
 	}
 	echo $table;
+	echo form_open('loggedinathlete/events');
+	echo"</br>";
+	echo form_submit('back', 'Back');
+	echo form_close();
 }
 else
 {
