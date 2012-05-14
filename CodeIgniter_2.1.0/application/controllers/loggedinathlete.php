@@ -90,82 +90,69 @@ class Loggedinathlete extends CI_Controller {
 	
 	public function weighttraining()
 	{
-		$userID = $this->session->userdata('userID');	
-		$result = $this->Model->getWeightData($userID);
-	
-
-		$this->table->set_heading(array('Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Date'));
-		
-		if($result){
-			foreach($result->result() as $row){
-				$date = $row->date;
-				$chest = $row->chest;
-				$back = $row->back;
-				$bis = $row->biceps;
-				$tris = $row->triceps;
-				$quads = $row->quads;
-				$hamstrings = $row->hamstrings;
-				$shoulders = $row->shoulders;
-				$chest_r = $row->chest_r;
-				$back_r = $row->back_r;
-				$bis_r = $row->biceps_r;
-				$tris_r = $row->triceps_r;
-				$quads_r = $row->quads_r;
-				$hamstrings_r = $row->hamstrings_r;
-				$shoulders_r = $row->shoulders_r;
+		if($this->session->userdata('admin') == 1){
+			$this->coachWeightTraining();
 			
-				$this->table->add_row(array($chest, $chest_r, $back, $back_r, $bis, $bis_r, $tris, $tris_r, $quads, $quads_r, $hamstrings, $hamstrings_r, $shoulders, $shoulders_r, $date));
-			}
 		}
-	
-		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">',   'heading_cell_start'  => '<th colspan=2>',
-                    'heading_cell_end'    => '</th>' );
-		$this->table->set_template($tmpl);
-	
-		$data['table'] = $this->table->generate();
+		else{
+			$userID = $this->session->userdata('userID');	
+			$result = $this->Model->getWeightData($userID);
 		
-		//cardio table for athlete
-		$result = $this->Model->getCardioData($userID);
 	
-		$this->table->set_heading(array('Date', 'Distance', 'Time'));
-		
-		if($result){
-			foreach($result->result() as $row){
-				$date = $row->date;
-				$dist = $row->distance;
-				$time = $row->time;
+			$this->table->set_heading(array('Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Date'));
 			
-				$this->table->add_row(array($date, $dist, $time));
+			if($result->num_rows() > 0){
+				foreach($result->result() as $row){
+					$date = $row->date;
+					$chest = $row->chest;
+					$back = $row->back;
+					$bis = $row->biceps;
+					$tris = $row->triceps;
+					$quads = $row->quads;
+					$hamstrings = $row->hamstrings;
+					$shoulders = $row->shoulders;
+					$chest_r = $row->chest_r;
+					$back_r = $row->back_r;
+					$bis_r = $row->biceps_r;
+					$tris_r = $row->triceps_r;
+					$quads_r = $row->quads_r;
+					$hamstrings_r = $row->hamstrings_r;
+					$shoulders_r = $row->shoulders_r;
+				
+					$this->table->add_row(array($chest, $chest_r, $back, $back_r, $bis, $bis_r, $tris, $tris_r, $quads, $quads_r, $hamstrings, $hamstrings_r, $shoulders, $shoulders_r, $date));
+				}
 			}
-		}
-
-		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
-		$this->table->set_template($tmpl);
-	
-		$data['cardio_table'] = $this->table->generate();
 		
-		//create list of athletes for coach
+			$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">',   'heading_cell_start'  => '<th colspan=2>',
+	                    'heading_cell_end'    => '</th>' );
+			$this->table->set_template($tmpl);
 		
-		$teamID = $this->session->userdata('teamID');
-		$result = $this->Model->getAllAthletes($teamID);
+			$data['table'] = $this->table->generate();
+			
+			//cardio table for athlete
+			$result = $this->Model->getCardioData($userID);
 		
-		if($result->num_rows() > 0){
-			foreach($result->result() as $row){
-				$userID = $row->userID;
-				$name = $row->name;
-				$link = anchor(base_url() . 'index.php/loggedinathlete/coachWeightTables/'.$userID, $name);
-				$this->table->add_row(array($link));
+			$this->table->set_heading(array('Date', 'Distance', 'Time'));
+			
+			if($result){
+				foreach($result->result() as $row){
+					$date = $row->date;
+					$dist = $row->distance;
+					$time = $row->time;
+				
+					$this->table->add_row(array($date, $dist, $time));
+				}
 			}
-		}
-		
-		$tmpl = array( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="0"' );
-		$this->table->set_template($tmpl);
 	
-		$data['athlete_list'] = $this->table->generate();
+			$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
+			$this->table->set_template($tmpl);
 		
-		$this->load->view('loggedinheader');
-		$this->load->view('weighttraining', $data);
-		$this->load->view('footer');
+			$data['cardio_table'] = $this->table->generate();
+			
+			$this->load->view('loggedinheader');
+			$this->load->view('weighttraining', $data);
+			$this->load->view('footer');
+		}
 	}
 	
 	public function add_date()
@@ -359,33 +346,63 @@ class Loggedinathlete extends CI_Controller {
 		redirect('welcome');
 	}
 	
-	public function coachWeightTables(){
-		$userID = $this->uri->segment(4);
-		$result = $this->Model->getWeightData($userID);
-	
-		$this->table->set_heading(array('Date', 'Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders'));
-
+	public function coachWeightTraining(){
 		
-		if($result){
+		//create list of athletes for coach
+		
+		$teamID = $this->session->userdata('teamID');
+		$result = $this->Model->getAllAthletes($teamID);
+		
+		if($result->num_rows() > 0){
 			foreach($result->result() as $row){
-				$date = $row->date;
-				$chest = $row->chest;
-				$back = $row->back;
-				$bis = $row->biceps;
-				$tris = $row->triceps;
-				$quads = $row->quads;
-				$hamstrings = $row->hamstrings;
-				$shoulders = $row->shoulders;
-			
-				$this->table->add_row(array($date, $chest, $back, $bis, $tris,$quads,$hamstrings,$shoulders));
+				$userID = $row->userID;
+				$name = $row->name;
+				$link = anchor(base_url() . 'index.php/loggedinathlete/coachWeightTables/'.$userID, $name);
+				$this->table->add_row(array($link));
 			}
 		}
-	
-	
-		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
+		
+		$tmpl = array( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="0"' );
 		$this->table->set_template($tmpl);
 	
-		$data['table'] = $this->table->generate();
+		$data['athlete_list'] = $this->table->generate();
+		
+		$this->load->view('loggedinheader');
+		$this->load->view('weighttraining', $data);
+		$this->load->view('footer');
+	}
+
+	public function coachWeightTables(){
+		$userID = $this->uri->segment(3);
+		$result = $this->Model->getWeightData($userID);
+	
+		$this->table->set_heading(array('Chest', 'Back', 'Biceps', 'Triceps','Quads', 'Hamstrings', 'Shoulders', 'Date'));
+		if($result->num_rows() > 0){
+				foreach($result->result() as $row){
+					$date = $row->date;
+					$chest = $row->chest;
+					$back = $row->back;
+					$bis = $row->biceps;
+					$tris = $row->triceps;
+					$quads = $row->quads;
+					$hamstrings = $row->hamstrings;
+					$shoulders = $row->shoulders;
+					$chest_r = $row->chest_r;
+					$back_r = $row->back_r;
+					$bis_r = $row->biceps_r;
+					$tris_r = $row->triceps_r;
+					$quads_r = $row->quads_r;
+					$hamstrings_r = $row->hamstrings_r;
+					$shoulders_r = $row->shoulders_r;
+				
+					$this->table->add_row(array($chest, $chest_r, $back, $back_r, $bis, $bis_r, $tris, $tris_r, $quads, $quads_r, $hamstrings, $hamstrings_r, $shoulders, $shoulders_r, $date));
+				}
+		}
+		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">',   'heading_cell_start'  => '<th colspan=2>',
+                    'heading_cell_end'    => '</th>' );
+		$this->table->set_template($tmpl);
+	
+		$data['coach_table'] = $this->table->generate();
 		
 		//cardio table for athlete
 		$result = $this->Model->getCardioData($userID);
@@ -401,12 +418,33 @@ class Loggedinathlete extends CI_Controller {
 				$this->table->add_row(array($date, $dist, $time));
 			}
 		}
-	
-	
-		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1"' );
+
+		$tmpl = array( 'table_open'  => '<table border="1" cellpadding="2" cellspacing="1" class="mytable">' );
 		$this->table->set_template($tmpl);
 	
-		$data['cardio_table'] = $this->table->generate();
+		$data['coach_cardio'] = $this->table->generate();
+		
+		//athlete list
+		$teamID = $this->session->userdata('teamID');
+		$result = $this->Model->getAllAthletes($teamID);
+		
+		if($result->num_rows() > 0){
+			foreach($result->result() as $row){
+				$userID = $row->userID;
+				$name = $row->name;
+				$link = anchor(base_url() . 'index.php/loggedinathlete/coachWeightTables/'.$userID, $name);
+				$this->table->add_row(array($link));
+			}
+		}
+		
+		$tmpl = array( 'table_open'  => '<table border="0" cellpadding="0" cellspacing="0"' );
+		$this->table->set_template($tmpl);
+	
+		$data['athlete_list'] = $this->table->generate();
+		
+		$this->load->view('loggedinheader');
+		$this->load->view('weighttraining', $data);
+		$this->load->view('footer');
 	}
 
 }

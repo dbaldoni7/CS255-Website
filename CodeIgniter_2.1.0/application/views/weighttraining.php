@@ -21,8 +21,17 @@ if ($this->session->userdata('logged_in'))
 
 	}
 	else{
-		echo "<h1>Training Data</h1>";
 		echo "<h2>Athletes</h2>";
+		
+		if(isset($coach_table)){
+			echo $coach_table;
+			echo "<br/>";
+		}
+		if(isset($coach_cardio)){
+			echo $coach_cardio;
+			echo "<br/>";
+		}
+		
 		echo $athlete_list;
 		
 	}
